@@ -64,10 +64,6 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
     tableView.delegate = self;
 }
 
-#pragma mark - UITableViewDelegate
-
-// ...
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;

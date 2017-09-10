@@ -42,9 +42,16 @@
 
 - (void) addRecord:(nonnull AccountRecord*)record
 {
-#warning check record currency does not exist
-    
-    [_records addObject:record];
+    if ([self recordForCurrencyCode:record.currency.code] == nil)
+    {
+        [_records addObject:record];
+    }
+}
+
+- (nullable AccountRecord*) recordForCurrencyCode:(nonnull NSString*)code
+{
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"self.currency.code == %@", code];
+    return [[self.records filteredArrayUsingPredicate:predicate] firstObject];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "AccountViewModel.h"
 
+extern const double kDefaultMoneyAmount;
+
 // A category to create a default account.
 
 @interface AccountViewModel (DefaultAccount)
