@@ -7,16 +7,36 @@
 //
 
 #import "ExchangeViewController.h"
+#import "CarouselView.h"
+#import "AccountRecordView.h"
+#import "UIView+Ex.h"
+
+// Exchange view controller
 
 @interface ExchangeViewController ()
+
+@property (nonatomic, weak) IBOutlet UIButton* exchangeButton;
+@property (nonatomic, weak) IBOutlet UIView* sourcePlaceholder;
+@property (nonatomic, weak) IBOutlet UIView* destinationPlaceholder;
 
 @end
 
 @implementation ExchangeViewController
+{
+    CarouselView* _sourceCarousel;
+    CarouselView* _destinationCarousel;
+}
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
+    [self setupViews];
+}
+
+- (void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self adjustFrames];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -24,12 +44,29 @@
     [super viewWillAppear:animated];
 }
 
-#pragma mark - Navigation
+#pragma mark - Setup views
 
-- (void) setupExchangeButton
+- (void) setupViews
 {
-    // Exchange
+    // Load 2 carousel views for source and destinations account records.
     
+    // Source carousel view
+    
+    _sourceCarousel = [CarouselView loadFromNib];
+    _sourceCarousel.frame = self.sourcePlaceholder.bounds;
+    [self.sourcePlaceholder addSubview:_sourceCarousel];
+    
+    // Destination carousel view
+    
+    _destinationCarousel = [CarouselView loadFromNib];
+    _destinationCarousel.frame = self.destinationPlaceholder.bounds;
+    [self.destinationPlaceholder addSubview:_destinationCarousel];
+}
+
+- (void) adjustFrames
+{
+    _sourceCarousel.frame = self.sourcePlaceholder.bounds;
+    _destinationCarousel.frame = self.destinationPlaceholder.bounds;
 }
 
 #pragma mark - Actions
@@ -39,26 +76,11 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void) exchange:(id)sender
+- (IBAction) exchange:(id)sender
 {
-    
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark - Navigation bar
-
-- (void) setupNavigationButtons
-{
-    
+    [self.viewModel exchange:10
+                  fromRecord:self.viewModel.sourceRecord
+                    toRecord:self.viewModel.destinationRecord];
 }
 
 @end

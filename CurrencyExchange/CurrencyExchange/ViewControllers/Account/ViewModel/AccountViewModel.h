@@ -17,8 +17,6 @@
 
 + (nullable instancetype) viewModelForAccount:(nonnull Account*)account;
 
-// Interface to account.
-
 - (NSInteger) numberOfRecords;
 
 - (nonnull AccountRecord*) recordAtIndex:(NSInteger)index;

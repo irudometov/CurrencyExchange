@@ -10,6 +10,12 @@
 		363255FC1F651EEF003E10F2 /* AccountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 363255FB1F651EEF003E10F2 /* AccountViewModel.m */; };
 		363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 363255FE1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m */; };
 		36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F4B1F65552B00B70691 /* AccountRecordTableViewCell.m */; };
+		36501F501F656AF600B70691 /* ExchangeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F4F1F656AF600B70691 /* ExchangeViewModel.m */; };
+		36501F541F65799E00B70691 /* AccountRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F531F65799E00B70691 /* AccountRecordView.m */; };
+		36501F561F6579ED00B70691 /* AccountRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36501F551F6579ED00B70691 /* AccountRecordView.xib */; };
+		36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F591F657F6F00B70691 /* UIView+Ex.m */; };
+		36501F5E1F65876900B70691 /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F5D1F65876900B70691 /* CarouselView.m */; };
+		36501F601F65878A00B70691 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36501F5F1F65878A00B70691 /* CarouselView.xib */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
@@ -18,7 +24,6 @@
 		36D285431F63EE15007B0034 /* CurrencyExchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285421F63EE15007B0034 /* CurrencyExchangeTests.m */; };
 		36D285521F63EEB2007B0034 /* AccoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285511F63EEB2007B0034 /* AccoutViewController.m */; };
 		36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285541F63EEC1007B0034 /* ExchangeViewController.m */; };
-		36D285581F63F0D7007B0034 /* ExchangeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285571F63F0D7007B0034 /* ExchangeViewModel.m */; };
 		36D285671F63F35F007B0034 /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285661F63F35F007B0034 /* Currency.m */; };
 		36D2856A1F63F453007B0034 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285691F63F453007B0034 /* Account.m */; };
 		36D2856D1F63F510007B0034 /* AccountRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2856C1F63F510007B0034 /* AccountRecord.m */; };
@@ -42,6 +47,16 @@
 		363255FE1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AccountViewModel+DefaultAccount.m"; sourceTree = "<group>"; };
 		36501F4A1F65552B00B70691 /* AccountRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRecordTableViewCell.h; sourceTree = "<group>"; };
 		36501F4B1F65552B00B70691 /* AccountRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecordTableViewCell.m; sourceTree = "<group>"; };
+		36501F4E1F656AF600B70691 /* ExchangeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewModel.h; sourceTree = "<group>"; };
+		36501F4F1F656AF600B70691 /* ExchangeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewModel.m; sourceTree = "<group>"; };
+		36501F521F65799E00B70691 /* AccountRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRecordView.h; sourceTree = "<group>"; };
+		36501F531F65799E00B70691 /* AccountRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecordView.m; sourceTree = "<group>"; };
+		36501F551F6579ED00B70691 /* AccountRecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountRecordView.xib; sourceTree = "<group>"; };
+		36501F581F657F6F00B70691 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
+		36501F591F657F6F00B70691 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
+		36501F5C1F65876900B70691 /* CarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
+		36501F5D1F65876900B70691 /* CarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselView.m; sourceTree = "<group>"; };
+		36501F5F1F65878A00B70691 /* CarouselView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,8 +72,6 @@
 		36D285511F63EEB2007B0034 /* AccoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccoutViewController.m; sourceTree = "<group>"; };
 		36D285531F63EEC1007B0034 /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
 		36D285541F63EEC1007B0034 /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
-		36D285561F63F0D7007B0034 /* ExchangeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewModel.h; sourceTree = "<group>"; };
-		36D285571F63F0D7007B0034 /* ExchangeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewModel.m; sourceTree = "<group>"; };
 		36D285651F63F35F007B0034 /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
 		36D285661F63F35F007B0034 /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
 		36D285681F63F453007B0034 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -105,6 +118,44 @@
 				36501F4B1F65552B00B70691 /* AccountRecordTableViewCell.m */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		36501F4D1F656AF600B70691 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36501F4E1F656AF600B70691 /* ExchangeViewModel.h */,
+				36501F4F1F656AF600B70691 /* ExchangeViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		36501F511F6578D600B70691 /* AccountRecordView */ = {
+			isa = PBXGroup;
+			children = (
+				36501F521F65799E00B70691 /* AccountRecordView.h */,
+				36501F531F65799E00B70691 /* AccountRecordView.m */,
+				36501F551F6579ED00B70691 /* AccountRecordView.xib */,
+			);
+			path = AccountRecordView;
+			sourceTree = "<group>";
+		};
+		36501F571F657F5600B70691 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				36501F581F657F6F00B70691 /* UIView+Ex.h */,
+				36501F591F657F6F00B70691 /* UIView+Ex.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		36501F5B1F65875F00B70691 /* CarouselView */ = {
+			isa = PBXGroup;
+			children = (
+				36501F5C1F65876900B70691 /* CarouselView.h */,
+				36501F5D1F65876900B70691 /* CarouselView.m */,
+				36501F5F1F65878A00B70691 /* CarouselView.xib */,
+			);
+			path = CarouselView;
 			sourceTree = "<group>";
 		};
 		36D2851C1F63EE14007B0034 = {
@@ -182,10 +233,9 @@
 		36D2854F1F63EE9C007B0034 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				36501F4D1F656AF600B70691 /* ViewModel */,
 				36D285531F63EEC1007B0034 /* ExchangeViewController.h */,
 				36D285541F63EEC1007B0034 /* ExchangeViewController.m */,
-				36D285561F63F0D7007B0034 /* ExchangeViewModel.h */,
-				36D285571F63F0D7007B0034 /* ExchangeViewModel.m */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -247,16 +297,11 @@
 		36D2855F1F63F1FB007B0034 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				36D285601F63F230007B0034 /* CarouselView */,
+				36501F571F657F5600B70691 /* UIView */,
+				36501F511F6578D600B70691 /* AccountRecordView */,
+				36501F5B1F65875F00B70691 /* CarouselView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		36D285601F63F230007B0034 /* CarouselView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CarouselView;
 			sourceTree = "<group>";
 		};
 		36D285641F63F29F007B0034 /* Currency */ = {
@@ -353,8 +398,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				36D285381F63EE14007B0034 /* LaunchScreen.storyboard in Resources */,
+				36501F561F6579ED00B70691 /* AccountRecordView.xib in Resources */,
 				36D285351F63EE14007B0034 /* Assets.xcassets in Resources */,
 				36D285331F63EE14007B0034 /* Main.storyboard in Resources */,
+				36501F601F65878A00B70691 /* CarouselView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,17 +420,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				36D285731F63FD6B007B0034 /* CurrencyProvider.m in Sources */,
+				36501F501F656AF600B70691 /* ExchangeViewModel.m in Sources */,
 				36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */,
 				36D285521F63EEB2007B0034 /* AccoutViewController.m in Sources */,
 				36D285671F63F35F007B0034 /* Currency.m in Sources */,
+				36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */,
 				36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */,
 				363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */,
+				36501F5E1F65876900B70691 /* CarouselView.m in Sources */,
 				36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */,
 				36D2856A1F63F453007B0034 /* Account.m in Sources */,
-				36D285581F63F0D7007B0034 /* ExchangeViewModel.m in Sources */,
 				36D2856D1F63F510007B0034 /* AccountRecord.m in Sources */,
 				363255FC1F651EEF003E10F2 /* AccountViewModel.m in Sources */,
 				36D2852A1F63EE14007B0034 /* main.m in Sources */,
+				36501F541F65799E00B70691 /* AccountRecordView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

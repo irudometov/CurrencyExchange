@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ExchangeViewModel.h"
 
+// A view controller to exchange currencies.
+
 @interface ExchangeViewController : UIViewController
 
 @property (nonnull, nonatomic) ExchangeViewModel* viewModel;

@@ -23,8 +23,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xB7-S8-7Fh">
-                                <rect key="frame" x="43" y="582" width="289" height="43"/>
-                                <color key="backgroundColor" red="0.11485460069444445" green="0.66644965277777779" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="43" y="580" width="289" height="43"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.66666666666666663" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="5TJ-Ih-wWp"/>
                                 </constraints>
@@ -36,9 +36,12 @@
                                     <segue destination="Xda-50-Bm8" kind="presentation" identifier="open-exchange" id="dYX-VP-nlS"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-tT-2gB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="491"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-tT-2gB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="270"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="8QI-VV-Kyi"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="account-record" rowHeight="90" id="jZr-MY-wg5" customClass="AccountRecordTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
@@ -90,8 +93,7 @@
                             <constraint firstItem="xB7-S8-7Fh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="27" id="XFY-6i-g4E"/>
                             <constraint firstItem="bqo-tT-2gB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aJY-X6-vz6"/>
                             <constraint firstItem="bqo-tT-2gB" firstAttribute="centerX" secondItem="xB7-S8-7Fh" secondAttribute="centerX" id="int-p6-fHE"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xB7-S8-7Fh" secondAttribute="bottom" constant="42" id="lDV-wP-IdI"/>
-                            <constraint firstItem="xB7-S8-7Fh" firstAttribute="top" secondItem="bqo-tT-2gB" secondAttribute="bottom" constant="27" id="zLo-4R-meA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xB7-S8-7Fh" secondAttribute="bottom" constant="44" id="lDV-wP-IdI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your account" id="bdF-T3-ZQS"/>
@@ -114,7 +116,31 @@
                     <view key="view" contentMode="scaleToFill" id="b7Y-BQ-GLg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSU-C0-MHH" userLabel="Source placeholder">
+                                <rect key="frame" x="0.0" y="64" width="375" height="160"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.81568627449999997" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="fGM-YF-QBo"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bb2-oy-rMq" userLabel="Destination placeholder">
+                                <rect key="frame" x="0.0" y="224" width="375" height="160"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="BoS-tx-7i0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bb2-oy-rMq" firstAttribute="centerX" secondItem="eSU-C0-MHH" secondAttribute="centerX" id="XL3-0M-KaD"/>
+                            <constraint firstItem="eSU-C0-MHH" firstAttribute="top" secondItem="EC4-JK-vJb" secondAttribute="bottom" id="cle-Um-rQX"/>
+                            <constraint firstItem="Bb2-oy-rMq" firstAttribute="width" secondItem="b7Y-BQ-GLg" secondAttribute="width" id="liR-ib-aCa"/>
+                            <constraint firstItem="eSU-C0-MHH" firstAttribute="centerX" secondItem="b7Y-BQ-GLg" secondAttribute="centerX" id="qhA-go-Ase"/>
+                            <constraint firstItem="Bb2-oy-rMq" firstAttribute="top" secondItem="eSU-C0-MHH" secondAttribute="bottom" id="wCJ-xe-4le"/>
+                            <constraint firstItem="eSU-C0-MHH" firstAttribute="width" secondItem="b7Y-BQ-GLg" secondAttribute="width" id="xz8-Ll-OIr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Exchange" id="P9W-BD-Byf">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="bDf-Lp-2UY">
@@ -122,11 +148,28 @@
                                 <action selector="cancel:" destination="Rh0-6Y-ZDL" id="eRd-u1-wtH"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="GfR-sf-uc8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ocs-c3-pSx">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Exchange"/>
+                                <connections>
+                                    <action selector="exchange:" destination="Rh0-6Y-ZDL" eventType="touchUpInside" id="aeY-EQ-dlS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="destinationPlaceholder" destination="Bb2-oy-rMq" id="ZXM-hz-5j8"/>
+                        <outlet property="exchangeButton" destination="ocs-c3-pSx" id="88h-uY-xzB"/>
+                        <outlet property="sourcePlaceholder" destination="eSU-C0-MHH" id="bRi-MA-9hf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIn-XD-vmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="71"/>
+            <point key="canvasLocation" x="2000.8" y="70.614692653673174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8g4-Kh-uEG">
