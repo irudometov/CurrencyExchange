@@ -12,6 +12,15 @@
 
 @implementation AccountRecordView
 
+#pragma mark - init / deinit
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Override view's methods
+
 - (void) awakeFromNib
 {
     [super awakeFromNib];
@@ -19,6 +28,7 @@
     if (self.amountTextField != nil)
     {
         [self subscribeForTextField:self.amountTextField];
+        self.amountTextField.keyboardType = UIKeyboardTypeDecimalPad;
     }
 }
 

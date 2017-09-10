@@ -20,6 +20,39 @@
 @implementation CarouselView
 {
     NSInteger _page;
+    NSMutableArray<UIView*>* _views;
+}
+
+#pragma mark - init / deinit
+
+- (instancetype) initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame])
+    {
+        _views = [NSMutableArray<UIView*> new];
+    }
+    
+    return self;
+}
+
+- (instancetype) initWithCoder:(NSCoder *)coder
+{
+    if (self = [super initWithCoder:coder])
+    {
+        _views = [NSMutableArray<UIView*> new];
+    }
+    
+    return self;
+}
+
+#pragma mark - Override view's methods
+
+- (void) awakeFromNib
+{
+    [super awakeFromNib];
+    self.scrollView.delegate = self;
+    
+    _page = 0;
 }
 
 #pragma mark - Page
@@ -40,30 +73,58 @@
 
 - (void) didChangePage
 {
-    NSLog(@"did change page to %ld", (long)self.page);
+    if ([self.delegate respondsToSelector:@selector(carouselViewDidChangePage:)])
+    {
+        [self.delegate carouselViewDidChangePage:self];
+    }
 }
 
-#pragma mark - Override view's methods
+#pragma mark - Manage views
 
-- (void) awakeFromNib
+- (nonnull NSArray<UIView*>*)views
 {
-    [super awakeFromNib];
+    return _views;
+}
+
+- (void) addView:(nonnull UIView*)view
+{
+    if (![_views containsObject:view])
+    {
+        [_views addObject:view];
+        [self.scrollView addSubview:view];
+        [self adjustFrames];
+    }
+}
+
+- (void) adjustFrames
+{
+    for (NSInteger page = 0; page < self.views.count; ++page)
+    {
+        UIView* view = self.views[page];
+        view.frame = [self frameForPage:page];
+    }
     
-    self.scrollView.delegate = self;
-    
-    _page = 0;
+    self.scrollView.contentSize = CGSizeMake(self.views.count * self.bounds.size.width, self.bounds.size.height);
+}
+
+- (CGRect) frameForPage:(NSInteger)page
+{
+    return CGRectMake(page * self.bounds.size.width, 0, self.bounds.size.width, self.bounds.size.height);
 }
 
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    
-}
-
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"scroll view did end decelerating...");
+    [self recalculateCurrentPage];
+}
+
+- (void) recalculateCurrentPage
+{
+    if (self.scrollView.bounds.size.width > 0)
+    {
+        self.page = (self.scrollView.contentOffset.x / self.scrollView.bounds.size.width);
+    }
 }
 
 @end

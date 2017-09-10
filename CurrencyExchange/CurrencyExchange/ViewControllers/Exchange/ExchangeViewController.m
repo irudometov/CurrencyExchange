@@ -13,7 +13,7 @@
 
 // Exchange view controller
 
-@interface ExchangeViewController ()
+@interface ExchangeViewController () <CarouselViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton* exchangeButton;
 @property (nonatomic, weak) IBOutlet UIView* sourcePlaceholder;
@@ -46,20 +46,42 @@
 
 #pragma mark - Setup views
 
++ (nullable CarouselView*) createCarouselWithSize:(NSUInteger)size
+{
+    CarouselView* carousel = [CarouselView loadFromNib];
+    
+    if (carousel != nil)
+    {
+        for (NSUInteger i = 0; i < size; ++i)
+        {
+            // Create a new account record view for every page.
+            
+            AccountRecordView* recordView = [AccountRecordView loadFromNib];
+            
+            if (recordView != nil)
+            {
+                [carousel addView:recordView];
+            }
+        }
+    }
+    
+    return carousel;
+}
+
 - (void) setupViews
 {
-    // Load 2 carousel views for source and destinations account records.
-    
     // Source carousel view
     
-    _sourceCarousel = [CarouselView loadFromNib];
+    _sourceCarousel = [ExchangeViewController createCarouselWithSize:self.viewModel.numberOfRecords];
     _sourceCarousel.frame = self.sourcePlaceholder.bounds;
+    _sourceCarousel.delegate = self;
     [self.sourcePlaceholder addSubview:_sourceCarousel];
     
     // Destination carousel view
     
-    _destinationCarousel = [CarouselView loadFromNib];
+    _destinationCarousel = [ExchangeViewController createCarouselWithSize:self.viewModel.numberOfRecords];
     _destinationCarousel.frame = self.destinationPlaceholder.bounds;
+    _destinationCarousel.delegate = self;
     [self.destinationPlaceholder addSubview:_destinationCarousel];
 }
 
@@ -67,6 +89,20 @@
 {
     _sourceCarousel.frame = self.sourcePlaceholder.bounds;
     _destinationCarousel.frame = self.destinationPlaceholder.bounds;
+}
+
+#pragma mark - CarouselViewDelegate
+
+- (void) carouselViewDidChangePage:(nonnull CarouselView*)carouselView
+{
+    if (carouselView == _sourceCarousel)
+    {
+        NSLog(@"source page is %ld", carouselView.page);
+    }
+    else if (carouselView == _destinationCarousel)
+    {
+        NSLog(@"destination page is %ld", carouselView.page);
+    }
 }
 
 #pragma mark - Actions
