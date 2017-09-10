@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		363255FC1F651EEF003E10F2 /* AccountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 363255FB1F651EEF003E10F2 /* AccountViewModel.m */; };
+		363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 363255FE1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m */; };
+		36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F4B1F65552B00B70691 /* AccountRecordTableViewCell.m */; };
+		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
+		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
+		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
+		36D285351F63EE14007B0034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D285341F63EE14007B0034 /* Assets.xcassets */; };
+		36D285381F63EE14007B0034 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285361F63EE14007B0034 /* LaunchScreen.storyboard */; };
+		36D285431F63EE15007B0034 /* CurrencyExchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285421F63EE15007B0034 /* CurrencyExchangeTests.m */; };
+		36D285521F63EEB2007B0034 /* AccoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285511F63EEB2007B0034 /* AccoutViewController.m */; };
+		36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285541F63EEC1007B0034 /* ExchangeViewController.m */; };
+		36D285581F63F0D7007B0034 /* ExchangeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285571F63F0D7007B0034 /* ExchangeViewModel.m */; };
+		36D285671F63F35F007B0034 /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285661F63F35F007B0034 /* Currency.m */; };
+		36D2856A1F63F453007B0034 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285691F63F453007B0034 /* Account.m */; };
+		36D2856D1F63F510007B0034 /* AccountRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2856C1F63F510007B0034 /* AccountRecord.m */; };
+		36D285731F63FD6B007B0034 /* CurrencyProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285721F63FD6B007B0034 /* CurrencyProvider.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36D2853F1F63EE15007B0034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36D2851D1F63EE14007B0034 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36D285241F63EE14007B0034;
+			remoteInfo = CurrencyExchange;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		363255FA1F651EEF003E10F2 /* AccountViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewModel.h; sourceTree = "<group>"; };
+		363255FB1F651EEF003E10F2 /* AccountViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewModel.m; sourceTree = "<group>"; };
+		363255FD1F651F08003E10F2 /* AccountViewModel+DefaultAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AccountViewModel+DefaultAccount.h"; sourceTree = "<group>"; };
+		363255FE1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AccountViewModel+DefaultAccount.m"; sourceTree = "<group>"; };
+		36501F4A1F65552B00B70691 /* AccountRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRecordTableViewCell.h; sourceTree = "<group>"; };
+		36501F4B1F65552B00B70691 /* AccountRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecordTableViewCell.m; sourceTree = "<group>"; };
+		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		36D2852C1F63EE14007B0034 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		36D285321F63EE14007B0034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36D285341F63EE14007B0034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36D285371F63EE14007B0034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		36D285391F63EE14007B0034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36D2853E1F63EE15007B0034 /* CurrencyExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyExchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D285421F63EE15007B0034 /* CurrencyExchangeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyExchangeTests.m; sourceTree = "<group>"; };
+		36D285441F63EE15007B0034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36D285501F63EEB2007B0034 /* AccoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccoutViewController.h; sourceTree = "<group>"; };
+		36D285511F63EEB2007B0034 /* AccoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccoutViewController.m; sourceTree = "<group>"; };
+		36D285531F63EEC1007B0034 /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
+		36D285541F63EEC1007B0034 /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
+		36D285561F63F0D7007B0034 /* ExchangeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewModel.h; sourceTree = "<group>"; };
+		36D285571F63F0D7007B0034 /* ExchangeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewModel.m; sourceTree = "<group>"; };
+		36D285651F63F35F007B0034 /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
+		36D285661F63F35F007B0034 /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
+		36D285681F63F453007B0034 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		36D285691F63F453007B0034 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		36D2856B1F63F510007B0034 /* AccountRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRecord.h; sourceTree = "<group>"; };
+		36D2856C1F63F510007B0034 /* AccountRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecord.m; sourceTree = "<group>"; };
+		36D285711F63FD6B007B0034 /* CurrencyProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyProvider.h; sourceTree = "<group>"; };
+		36D285721F63FD6B007B0034 /* CurrencyProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyProvider.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36D285221F63EE14007B0034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D2853B1F63EE15007B0034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		363255F91F651EEF003E10F2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				363255FA1F651EEF003E10F2 /* AccountViewModel.h */,
+				363255FB1F651EEF003E10F2 /* AccountViewModel.m */,
+				363255FD1F651F08003E10F2 /* AccountViewModel+DefaultAccount.h */,
+				363255FE1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		36501F491F65551800B70691 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36501F4A1F65552B00B70691 /* AccountRecordTableViewCell.h */,
+				36501F4B1F65552B00B70691 /* AccountRecordTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		36D2851C1F63EE14007B0034 = {
+			isa = PBXGroup;
+			children = (
+				36D285271F63EE14007B0034 /* CurrencyExchange */,
+				36D285411F63EE15007B0034 /* CurrencyExchangeTests */,
+				36D285261F63EE14007B0034 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36D285261F63EE14007B0034 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36D285251F63EE14007B0034 /* CurrencyExchange.app */,
+				36D2853E1F63EE15007B0034 /* CurrencyExchangeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36D285271F63EE14007B0034 /* CurrencyExchange */ = {
+			isa = PBXGroup;
+			children = (
+				36D285591F63F1FB007B0034 /* Core */,
+				36D2855F1F63F1FB007B0034 /* Views */,
+				36D2854D1F63EE9C007B0034 /* ViewControllers */,
+				36D2852B1F63EE14007B0034 /* AppDelegate.h */,
+				36D2852C1F63EE14007B0034 /* AppDelegate.m */,
+				36D285311F63EE14007B0034 /* Main.storyboard */,
+				36D285341F63EE14007B0034 /* Assets.xcassets */,
+				36D285361F63EE14007B0034 /* LaunchScreen.storyboard */,
+				36D285391F63EE14007B0034 /* Info.plist */,
+				36D285281F63EE14007B0034 /* Supporting Files */,
+			);
+			path = CurrencyExchange;
+			sourceTree = "<group>";
+		};
+		36D285281F63EE14007B0034 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				36D285291F63EE14007B0034 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		36D285411F63EE15007B0034 /* CurrencyExchangeTests */ = {
+			isa = PBXGroup;
+			children = (
+				36D285421F63EE15007B0034 /* CurrencyExchangeTests.m */,
+				36D285441F63EE15007B0034 /* Info.plist */,
+			);
+			path = CurrencyExchangeTests;
+			sourceTree = "<group>";
+		};
+		36D2854D1F63EE9C007B0034 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				36D2854E1F63EE9C007B0034 /* Account */,
+				36D2854F1F63EE9C007B0034 /* Exchange */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		36D2854E1F63EE9C007B0034 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				36501F491F65551800B70691 /* Cell */,
+				363255F91F651EEF003E10F2 /* ViewModel */,
+				36D285501F63EEB2007B0034 /* AccoutViewController.h */,
+				36D285511F63EEB2007B0034 /* AccoutViewController.m */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		36D2854F1F63EE9C007B0034 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				36D285531F63EEC1007B0034 /* ExchangeViewController.h */,
+				36D285541F63EEC1007B0034 /* ExchangeViewController.m */,
+				36D285561F63F0D7007B0034 /* ExchangeViewModel.h */,
+				36D285571F63F0D7007B0034 /* ExchangeViewModel.m */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		36D285591F63F1FB007B0034 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				36D2855A1F63F1FB007B0034 /* Account */,
+				36D285641F63F29F007B0034 /* Currency */,
+				36D2855B1F63F1FB007B0034 /* CurrencyProvider */,
+				36D2855E1F63F1FB007B0034 /* NetworkService */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		36D2855A1F63F1FB007B0034 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				36D285681F63F453007B0034 /* Account.h */,
+				36D285691F63F453007B0034 /* Account.m */,
+				36D2856B1F63F510007B0034 /* AccountRecord.h */,
+				36D2856C1F63F510007B0034 /* AccountRecord.m */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		36D2855B1F63F1FB007B0034 /* CurrencyProvider */ = {
+			isa = PBXGroup;
+			children = (
+				36D2855C1F63F1FB007B0034 /* Model */,
+				36D2855D1F63F1FB007B0034 /* Parser */,
+				36D285711F63FD6B007B0034 /* CurrencyProvider.h */,
+				36D285721F63FD6B007B0034 /* CurrencyProvider.m */,
+			);
+			path = CurrencyProvider;
+			sourceTree = "<group>";
+		};
+		36D2855C1F63F1FB007B0034 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36D2855D1F63F1FB007B0034 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		36D2855E1F63F1FB007B0034 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		36D2855F1F63F1FB007B0034 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				36D285601F63F230007B0034 /* CarouselView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		36D285601F63F230007B0034 /* CarouselView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CarouselView;
+			sourceTree = "<group>";
+		};
+		36D285641F63F29F007B0034 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				36D285651F63F35F007B0034 /* Currency.h */,
+				36D285661F63F35F007B0034 /* Currency.m */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36D285241F63EE14007B0034 /* CurrencyExchange */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36D285471F63EE15007B0034 /* Build configuration list for PBXNativeTarget "CurrencyExchange" */;
+			buildPhases = (
+				36D285211F63EE14007B0034 /* Sources */,
+				36D285221F63EE14007B0034 /* Frameworks */,
+				36D285231F63EE14007B0034 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CurrencyExchange;
+			productName = CurrencyExchange;
+			productReference = 36D285251F63EE14007B0034 /* CurrencyExchange.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36D2853D1F63EE15007B0034 /* CurrencyExchangeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36D2854A1F63EE15007B0034 /* Build configuration list for PBXNativeTarget "CurrencyExchangeTests" */;
+			buildPhases = (
+				36D2853A1F63EE15007B0034 /* Sources */,
+				36D2853B1F63EE15007B0034 /* Frameworks */,
+				36D2853C1F63EE15007B0034 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36D285401F63EE15007B0034 /* PBXTargetDependency */,
+			);
+			name = CurrencyExchangeTests;
+			productName = CurrencyExchangeTests;
+			productReference = 36D2853E1F63EE15007B0034 /* CurrencyExchangeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36D2851D1F63EE14007B0034 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Ilya Rudometov";
+				TargetAttributes = {
+					36D285241F63EE14007B0034 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = T4FZEXKFYW;
+						ProvisioningStyle = Automatic;
+					};
+					36D2853D1F63EE15007B0034 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = T4FZEXKFYW;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 36D285241F63EE14007B0034;
+					};
+				};
+			};
+			buildConfigurationList = 36D285201F63EE14007B0034 /* Build configuration list for PBXProject "CurrencyExchange" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36D2851C1F63EE14007B0034;
+			productRefGroup = 36D285261F63EE14007B0034 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36D285241F63EE14007B0034 /* CurrencyExchange */,
+				36D2853D1F63EE15007B0034 /* CurrencyExchangeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36D285231F63EE14007B0034 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D285381F63EE14007B0034 /* LaunchScreen.storyboard in Resources */,
+				36D285351F63EE14007B0034 /* Assets.xcassets in Resources */,
+				36D285331F63EE14007B0034 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D2853C1F63EE15007B0034 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36D285211F63EE14007B0034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D285731F63FD6B007B0034 /* CurrencyProvider.m in Sources */,
+				36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */,
+				36D285521F63EEB2007B0034 /* AccoutViewController.m in Sources */,
+				36D285671F63F35F007B0034 /* Currency.m in Sources */,
+				36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */,
+				363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */,
+				36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */,
+				36D2856A1F63F453007B0034 /* Account.m in Sources */,
+				36D285581F63F0D7007B0034 /* ExchangeViewModel.m in Sources */,
+				36D2856D1F63F510007B0034 /* AccountRecord.m in Sources */,
+				363255FC1F651EEF003E10F2 /* AccountViewModel.m in Sources */,
+				36D2852A1F63EE14007B0034 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36D2853A1F63EE15007B0034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D285431F63EE15007B0034 /* CurrencyExchangeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36D285401F63EE15007B0034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36D285241F63EE14007B0034 /* CurrencyExchange */;
+			targetProxy = 36D2853F1F63EE15007B0034 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		36D285311F63EE14007B0034 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36D285321F63EE14007B0034 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		36D285361F63EE14007B0034 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36D285371F63EE14007B0034 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		36D285451F63EE15007B0034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		36D285461F63EE15007B0034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36D285481F63EE15007B0034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T4FZEXKFYW;
+				INFOPLIST_FILE = CurrencyExchange/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irudometov.CurrencyExchange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		36D285491F63EE15007B0034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T4FZEXKFYW;
+				INFOPLIST_FILE = CurrencyExchange/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irudometov.CurrencyExchange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		36D2854B1F63EE15007B0034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T4FZEXKFYW;
+				INFOPLIST_FILE = CurrencyExchangeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irudometov.CurrencyExchangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyExchange.app/CurrencyExchange";
+			};
+			name = Debug;
+		};
+		36D2854C1F63EE15007B0034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T4FZEXKFYW;
+				INFOPLIST_FILE = CurrencyExchangeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irudometov.CurrencyExchangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyExchange.app/CurrencyExchange";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36D285201F63EE14007B0034 /* Build configuration list for PBXProject "CurrencyExchange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D285451F63EE15007B0034 /* Debug */,
+				36D285461F63EE15007B0034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36D285471F63EE15007B0034 /* Build configuration list for PBXNativeTarget "CurrencyExchange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D285481F63EE15007B0034 /* Debug */,
+				36D285491F63EE15007B0034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36D2854A1F63EE15007B0034 /* Build configuration list for PBXNativeTarget "CurrencyExchangeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D2854B1F63EE15007B0034 /* Debug */,
+				36D2854C1F63EE15007B0034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36D2851D1F63EE14007B0034 /* Project object */;
+}
