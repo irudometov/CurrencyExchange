@@ -16,6 +16,7 @@
 		36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F591F657F6F00B70691 /* UIView+Ex.m */; };
 		36501F5E1F65876900B70691 /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F5D1F65876900B70691 /* CarouselView.m */; };
 		36501F601F65878A00B70691 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36501F5F1F65878A00B70691 /* CarouselView.xib */; };
+		36501F631F66820300B70691 /* CurrencyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F621F66820300B70691 /* CurrencyPair.m */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
@@ -57,6 +58,8 @@
 		36501F5C1F65876900B70691 /* CarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
 		36501F5D1F65876900B70691 /* CarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselView.m; sourceTree = "<group>"; };
 		36501F5F1F65878A00B70691 /* CarouselView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
+		36501F611F66820300B70691 /* CurrencyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyPair.h; sourceTree = "<group>"; };
+		36501F621F66820300B70691 /* CurrencyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPair.m; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 			children = (
 				36D285651F63F35F007B0034 /* Currency.h */,
 				36D285661F63F35F007B0034 /* Currency.m */,
+				36501F611F66820300B70691 /* CurrencyPair.h */,
+				36501F621F66820300B70691 /* CurrencyPair.m */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36501F631F66820300B70691 /* CurrencyPair.m in Sources */,
 				36D285731F63FD6B007B0034 /* CurrencyProvider.m in Sources */,
 				36501F501F656AF600B70691 /* ExchangeViewModel.m in Sources */,
 				36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */,

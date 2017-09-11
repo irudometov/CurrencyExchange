@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Currency.h"
+#import "CurrencyPair.h"
 
 @class CurrencyProvider;
 
@@ -23,8 +23,19 @@ extern const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL;
 
 @property (nonnull, nonatomic, readonly) Currency* baseCurrency;        // EUR for the server by default.
 @property (nonnull, nonatomic, readonly) NSArray<Currency*>* currencies;
+@property (nonnull, nonatomic, readonly) NSArray<CurrencyPair*>* pairs;
 
 @property (nonatomic, readwrite) NSTimeInterval refreshTimeInterval;
+
+- (BOOL) isBaseCurrency:(nonnull Currency*)currency;
+
+- (nullable NSNumber*) convert:(double)amount
+                          from:(nonnull Currency*)source
+                            to:(nonnull Currency*)target
+                         error:(NSError* _Nonnull __autoreleasing *_Nullable)error;
+
+- (nullable NSNumber*) conversionRateForCurrency:(nonnull Currency*)currency;
+- (nullable NSNumber*) conversionRateFrom:(nonnull Currency*)source to:(nonnull Currency*)target;
 
 - (void) refreshCurrenciesWithCompletion:(nonnull CurrencyProviderCallback)callback;
 

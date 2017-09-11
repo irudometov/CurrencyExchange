@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AccountRecordView.h"
 
 // Delegate
 
@@ -16,6 +17,8 @@
 
 - (void) carouselViewDidChangePage:(nonnull CarouselView*)carouselView;
 
+- (void) carouselView:(nonnull CarouselView*)carouselView bindRecordView:(nonnull AccountRecordView*)recordView forPage:(NSInteger)page;
+
 @end
 
 // A complex view to display paged scroll view.
@@ -24,7 +27,7 @@
 
 @property (nonatomic, readwrite) NSUInteger page;
 @property (nonatomic, readwrite) NSUInteger pageCount;
-@property (nonatomic, readwrite) NSArray<UIView*>* _Nonnull views;
+@property (nonatomic, readwrite) NSArray<AccountRecordView*>* _Nonnull views;
 
 @property (nullable, nonatomic, weak) id <CarouselViewDelegate> delegate;
 

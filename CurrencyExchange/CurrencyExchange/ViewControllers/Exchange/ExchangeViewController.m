@@ -10,6 +10,7 @@
 #import "CarouselView.h"
 #import "AccountRecordView.h"
 #import "UIView+Ex.h"
+#import "CurrencyProvider.h"
 
 // Exchange view controller
 
@@ -92,6 +93,16 @@
     }
 }
 
+- (void) carouselView:(nonnull CarouselView*)carouselView bindRecordView:(nonnull AccountRecordView*)recordView forPage:(NSInteger)page
+{
+    AccountRecord* record = [self.viewModel recordAtIndex:page];
+    
+    recordView.currencyCodeLabel.text = record.currency.code;
+    recordView.currentAmountLabel.text = [NSString stringWithFormat:@"You have %.2f", record.amount];
+    recordView.amountTextField.text = @"1";
+    recordView.errorLabel.text = nil;
+}
+
 #pragma mark - Actions
 
 - (IBAction) cancel:(id)sender
@@ -101,6 +112,18 @@
 
 - (IBAction) exchange:(id)sender
 {
+    NSNumber* eur = [[CurrencyProvider sharedInstance] conversionRateForCurrency:[Currency EUR]];
+    NSNumber* usd = [[CurrencyProvider sharedInstance] conversionRateForCurrency:[Currency USD]];
+    NSNumber* gbp = [[CurrencyProvider sharedInstance] conversionRateForCurrency:[Currency GBP]];
+    NSNumber* usd_gbp = [[CurrencyProvider sharedInstance] conversionRateFrom:[Currency USD] to:[Currency GBP]];
+    NSNumber* gbp_usd = [[CurrencyProvider sharedInstance] conversionRateFrom:[Currency GBP] to:[Currency USD]];
+    
+    NSLog(@"eur: %@", eur);
+    NSLog(@"usd: %@", usd);
+    NSLog(@"gbp: %@", gbp);
+    NSLog(@"usd_gbp: %@", usd_gbp);
+    NSLog(@"gbp_usd: %@", gbp_usd);
+    
     [self.viewModel exchange:10
                   fromRecord:self.viewModel.sourceRecord
                     toRecord:self.viewModel.destinationRecord];

@@ -175,8 +175,15 @@ static const CGFloat BOTTOM_PADDING = 24; // px
 - (void) adjustViewForPage:(NSInteger)page
 {
     const NSInteger index = [self viewIndexForPage:page];
-    UIView* view = self.views[index];
+    AccountRecordView* view = self.views[index];
     view.frame = [self frameForPage:page];
+    
+    // Bind data
+    
+    if ([self.delegate respondsToSelector:@selector(carouselView:bindRecordView:forPage:)])
+    {
+        [self.delegate carouselView:self bindRecordView:view forPage:page % self.pageCount];
+    }
 }
 
 - (NSInteger) viewIndexForPage:(NSInteger)page

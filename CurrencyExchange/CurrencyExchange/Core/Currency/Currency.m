@@ -14,12 +14,6 @@ NSString* _Nonnull const kCurrencyCode_GBP = @"GBP";
 
 // Currency
 
-@interface Currency ()
-
-@property (nonnull, nonatomic, copy, readwrite) NSString* code;
-
-@end
-
 @implementation Currency
 
 #pragma mark - Initialization
@@ -48,10 +42,33 @@ NSString* _Nonnull const kCurrencyCode_GBP = @"GBP";
 {
     if (self = [super init])
     {
-        self.code = code;
+        _code = code;
+        _lowercaseCode = [code lowercaseString];
     }
     
     return self;
+}
+
+- (BOOL) isEqual:(nullable Currency*)other
+{
+    if (other == self)
+    {
+        return YES;
+    }
+    
+    // Compare currencies by code.
+    
+    if (other != nil)
+    {
+        return [_lowercaseCode isEqual:other.lowercaseCode];
+    }
+    
+    return [super isEqual:other];
+}
+
+- (NSUInteger) hash
+{
+    return self.lowercaseCode.hash;
 }
 
 @end

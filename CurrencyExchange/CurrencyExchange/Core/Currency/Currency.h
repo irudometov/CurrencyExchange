@@ -17,6 +17,7 @@ extern NSString* _Nonnull const kCurrencyCode_GBP;
 @interface Currency : NSObject
 
 @property (nonnull, nonatomic, copy, readonly) NSString* code;
+@property (nonnull, nonatomic, copy, readonly) NSString* lowercaseCode;
 
 + (nullable instancetype) currencyWithCode:(nonnull NSString*)code;
 
