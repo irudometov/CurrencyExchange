@@ -50,34 +50,21 @@
 {
     CarouselView* carousel = [CarouselView loadFromNib];
     
-    if (carousel != nil)
-    {
-        for (NSUInteger i = 0; i < size; ++i)
-        {
-            // Create a new account record view for every page.
-            
-            AccountRecordView* recordView = [AccountRecordView loadFromNib];
-            
-            if (recordView != nil)
-            {
-                [carousel addView:recordView];
-            }
-        }
-    }
+    carousel.pageCount = size;
     
     return carousel;
 }
 
 - (void) setupViews
 {
-    // Source carousel view
+    // Source carousel
     
     _sourceCarousel = [ExchangeViewController createCarouselWithSize:self.viewModel.numberOfRecords];
     _sourceCarousel.frame = self.sourcePlaceholder.bounds;
     _sourceCarousel.delegate = self;
     [self.sourcePlaceholder addSubview:_sourceCarousel];
     
-    // Destination carousel view
+    // Destination carousel
     
     _destinationCarousel = [ExchangeViewController createCarouselWithSize:self.viewModel.numberOfRecords];
     _destinationCarousel.frame = self.destinationPlaceholder.bounds;
@@ -97,11 +84,11 @@
 {
     if (carouselView == _sourceCarousel)
     {
-        NSLog(@"source page is %ld", carouselView.page);
+        NSLog(@"source page is %ld", (long)carouselView.page);
     }
     else if (carouselView == _destinationCarousel)
     {
-        NSLog(@"destination page is %ld", carouselView.page);
+        NSLog(@"destination page is %ld", (long)carouselView.page);
     }
 }
 

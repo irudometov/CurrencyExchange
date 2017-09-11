@@ -44,7 +44,7 @@
 
 - (nonnull AccountRecord*) recordAtIndex:(NSInteger)index
 {
-    NSAssert(index >= 0 && index < self.numberOfRecords, @"Index %ld is out of bounds [0, %ld].", index, (long)self.numberOfRecords);
+    NSAssert(index >= 0 && index < self.numberOfRecords, @"Index %ld is out of bounds [0, %ld].", (long)index, (long)self.numberOfRecords);
     
     return self.account.records[index];
 }

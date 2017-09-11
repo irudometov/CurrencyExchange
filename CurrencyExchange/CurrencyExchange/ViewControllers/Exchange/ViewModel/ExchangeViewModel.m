@@ -10,10 +10,6 @@
 
 // Exchange view model
 
-@interface ExchangeViewModel ()
-
-@end
-
 @implementation ExchangeViewModel
 {
     AccountRecord* _sourceRecord;

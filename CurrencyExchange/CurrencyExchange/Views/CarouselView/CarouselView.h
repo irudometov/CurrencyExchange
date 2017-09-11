@@ -22,11 +22,10 @@
 
 @interface CarouselView : UIView
 
-@property (nonatomic, readwrite) NSInteger page;
+@property (nonatomic, readwrite) NSUInteger page;
+@property (nonatomic, readwrite) NSUInteger pageCount;
 @property (nonatomic, readwrite) NSArray<UIView*>* _Nonnull views;
 
 @property (nullable, nonatomic, weak) id <CarouselViewDelegate> delegate;
-
-- (void) addView:(nonnull UIView*)view; // use this method to add views instead of 'addSubview:'
 
 @end

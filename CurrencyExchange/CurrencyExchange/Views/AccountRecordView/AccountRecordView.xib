@@ -12,24 +12,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Ga1-Pg-LMu" customClass="AccountRecordView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEi-9m-lTt">
-                    <rect key="frame" x="22" y="33.5" width="72" height="45.5"/>
+                    <rect key="frame" x="22" y="31.5" width="72" height="45.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="38"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You have 112.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04j-a9-qaJ">
-                    <rect key="frame" x="22" y="76" width="123" height="15"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 112.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04j-a9-qaJ">
+                    <rect key="frame" x="22" y="76" width="89.5" height="15"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="500" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-Cr-azo">
-                    <rect key="frame" x="160" y="32" width="200" height="48"/>
+                    <rect key="frame" x="160" y="30" width="200" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Ws5-XW-xpO"/>
                     </constraints>
@@ -37,8 +36,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="error message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiC-p4-Gde">
-                    <rect key="frame" x="205" y="76" width="155" height="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiC-p4-Gde">
+                    <rect key="frame" x="279" y="74" width="81" height="15"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -46,10 +45,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="04j-a9-qaJ" firstAttribute="leading" secondItem="Ga1-Pg-LMu" secondAttribute="leading" constant="22" id="AwG-EG-6CD"/>
+                <constraint firstItem="eiC-p4-Gde" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="04j-a9-qaJ" secondAttribute="trailing" constant="20" id="CsL-Fw-Owz"/>
                 <constraint firstItem="nEi-9m-lTt" firstAttribute="centerY" secondItem="Ga1-Pg-LMu" secondAttribute="centerY" constant="-6" id="Ncu-AY-wnq"/>
                 <constraint firstItem="DCe-Cr-azo" firstAttribute="centerY" secondItem="Ga1-Pg-LMu" secondAttribute="centerY" constant="-6" id="TMV-A2-KHr"/>
+                <constraint firstAttribute="trailing" secondItem="eiC-p4-Gde" secondAttribute="trailing" constant="15" id="VTf-M5-SO3"/>
                 <constraint firstItem="nEi-9m-lTt" firstAttribute="leading" secondItem="Ga1-Pg-LMu" secondAttribute="leading" constant="22" id="Vpm-jd-b5y"/>
                 <constraint firstItem="eiC-p4-Gde" firstAttribute="top" secondItem="DCe-Cr-azo" secondAttribute="bottom" constant="-4" id="gjM-Jj-ifv"/>
+                <constraint firstItem="04j-a9-qaJ" firstAttribute="top" secondItem="nEi-9m-lTt" secondAttribute="bottom" constant="-1" id="mio-Ml-dES"/>
                 <constraint firstAttribute="trailing" secondItem="DCe-Cr-azo" secondAttribute="trailing" constant="15" id="okQ-fe-0oC"/>
                 <constraint firstItem="DCe-Cr-azo" firstAttribute="leading" secondItem="nEi-9m-lTt" secondAttribute="trailing" constant="66" id="x46-v5-BeP"/>
             </constraints>
