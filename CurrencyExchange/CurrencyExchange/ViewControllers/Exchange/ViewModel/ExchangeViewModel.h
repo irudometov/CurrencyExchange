@@ -15,13 +15,21 @@
 
 @property (nonatomic, readwrite) double unitsToExchange;
 
+@property (nonatomic) NSUInteger sourceRecordIndex;
+@property (nonatomic) NSUInteger targetRecordIndex;
+
 @property (nonnull, nonatomic, readonly) AccountRecord* sourceRecord;
-@property (nonnull, nonatomic, readonly) AccountRecord* destinationRecord;
+@property (nonnull, nonatomic, readonly) AccountRecord* targetRecord;
 
 - (nullable NSNumber*) unitsToExchangeInCurrency:(nonnull Currency*)currency;
 
 - (nonnull Currency*) sourceCurrencyAtIndex:(NSInteger)index;
 - (nonnull Currency*) destinationCurrencyAtIndex:(NSInteger)index;
+
+// Balance
+
+- (double) balanceForRecortAtIndex:(NSInteger)index;
+- (BOOL) hasEnoughMoneyForRecordAtIndex:(NSInteger)index;
 
 // A basic mechanism to exchange currencies between 2 records.
 

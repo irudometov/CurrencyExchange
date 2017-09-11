@@ -12,7 +12,7 @@
 
 @interface Utils : NSObject
 
-+ (nullable NSNumber*) amountFromString:(nonnull NSString*)string;
++ (nonnull NSNumber*) amountFromString:(nonnull NSString*)string;
 
 + (nullable NSString*) stringFromAmount:(nonnull NSNumber*)amount;
 

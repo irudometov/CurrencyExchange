@@ -12,7 +12,7 @@
 
 @implementation Utils
 
-+ (nullable NSNumber*) amountFromString:(nonnull NSString*)string
++ (nonnull NSNumber*) amountFromString:(nonnull NSString*)string
 {
     NSString* trimmed = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
@@ -21,7 +21,7 @@
         return @(fabs([trimmed doubleValue]));
     }
     
-    return nil;
+    return @(0);
 }
 
 + (nonnull NSString*) formatStringForDouble:(double)value

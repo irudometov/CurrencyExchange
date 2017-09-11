@@ -14,9 +14,6 @@
 
 @implementation ExchangeViewModel
 {
-    AccountRecord* _sourceRecord;
-    AccountRecord* _destinationRecord;
-    
     double _unitsToExchange;
 }
 
@@ -25,20 +22,11 @@
     if (self = [super initWithAccount:account])
     {
         _unitsToExchange = 0;
+        _sourceRecordIndex = 0;
+        _targetRecordIndex = 0;
     }
     
     return self;
-}
-
-#pragma mark - Update records
-
-- (void) setupInitialRecords
-{
-    if (self.numberOfRecords > 1)
-    {
-        _sourceRecord = [self recordAtIndex:0];
-        _destinationRecord = [self recordAtIndex:1];
-    }
 }
 
 #pragma mark - Amount
@@ -46,6 +34,28 @@
 - (nullable NSNumber*) unitsToExchangeInCurrency:(nonnull Currency*)currency
 {
     return [[CurrencyProvider sharedInstance] amountFromUnits:self.unitsToExchange inCurrency:currency];
+}
+
+#pragma mark - Records
+
+- (void) setSourceRecordIndex:(NSUInteger)newIndex
+{
+    _sourceRecordIndex = MIN(newIndex, MAX(self.numberOfRecords - 1, 0));
+}
+
+- (void) setTargetRecordIndex:(NSUInteger)newIndex
+{
+    _targetRecordIndex = MIN(newIndex, MAX(self.numberOfRecords - 1, 0));
+}
+
+- (nonnull AccountRecord*) sourceRecord
+{
+    return [self recordAtIndex:self.sourceRecordIndex];
+}
+
+- (nonnull AccountRecord*) targetRecord
+{
+    return [self recordAtIndex:self.targetRecordIndex];
 }
 
 #pragma mark - Access currency info
@@ -58,6 +68,22 @@
 - (nonnull Currency*) destinationCurrencyAtIndex:(NSInteger)index
 {
     return [self currencyAtIndex:index];
+}
+
+#pragma mark - Current balance
+
+- (double) balanceForRecortAtIndex:(NSInteger)index
+{
+    AccountRecord* record = [super recordAtIndex:index];
+    NSNumber* balance = [[CurrencyProvider sharedInstance] unitsFromAmount:record.amount forCurrency:record.currency];
+    
+    return (balance != nil ? balance.doubleValue : 0);
+}
+
+- (BOOL) hasEnoughMoneyForRecordAtIndex:(NSInteger)index
+{
+    const double balance = [self balanceForRecortAtIndex:index];
+    return (balance >= self.unitsToExchange);
 }
 
 #pragma mark - Exchange

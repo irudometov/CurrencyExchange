@@ -286,19 +286,11 @@
 		36D2855B1F63F1FB007B0034 /* CurrencyProvider */ = {
 			isa = PBXGroup;
 			children = (
-				36D2855C1F63F1FB007B0034 /* Model */,
 				36D2855D1F63F1FB007B0034 /* Parser */,
 				36D285711F63FD6B007B0034 /* CurrencyProvider.h */,
 				36D285721F63FD6B007B0034 /* CurrencyProvider.m */,
 			);
 			path = CurrencyProvider;
-			sourceTree = "<group>";
-		};
-		36D2855C1F63F1FB007B0034 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		36D2855D1F63F1FB007B0034 /* Parser */ = {

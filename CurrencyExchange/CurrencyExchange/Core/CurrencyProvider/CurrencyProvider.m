@@ -9,7 +9,7 @@
 #import "CurrencyProvider.h"
 
 const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL = 30; // sec
-const double CONVERSTION_RATE_1 = 1.0;
+const double CONVERSTION_RATE_EQUAL = 1.0;
 
 // Currency provider
 
@@ -40,11 +40,11 @@ const double CONVERSTION_RATE_1 = 1.0;
 {
     if (self = [super init])
     {
+        _baseCurrency = [Currency EUR];
         _refreshTimeInterval = CURRENCY_REFRESH_TIME_INTERVAL;
+        
         _currencies = [NSMutableArray<Currency*> new];
         _pairs = [NSMutableArray<CurrencyPair*> new];
-        
-        _baseCurrency = [Currency EUR];
         
         [self initDefaultPairs];
     }
@@ -70,11 +70,6 @@ const double CONVERSTION_RATE_1 = 1.0;
 
 #pragma mark - Convert
 
-+ (nonnull NSNumber*) equalConversionRate
-{
-    return @(CONVERSTION_RATE_1);
-}
-
 - (nullable NSNumber*) convert:(double)amount
                           from:(nonnull Currency*)source
                             to:(nonnull Currency*)target
@@ -82,7 +77,12 @@ const double CONVERSTION_RATE_1 = 1.0;
 {
     // Find appropriate pairs to calculate the rate of <source, target> pair.
     
+    NSNumber* rate = [self conversionRateFrom:source to:target];
     
+    if (rate != nil)
+    {
+        return @(fabs(amount * rate.doubleValue));
+    }
     
     return nil;
 }
@@ -110,7 +110,7 @@ const double CONVERSTION_RATE_1 = 1.0;
 {
     if ([self isBaseCurrency:currency])
     {
-        return @(CONVERSTION_RATE_1);
+        return @(CONVERSTION_RATE_EQUAL);
     }
     
     // Find an appropriate currency pair and use its rate.
@@ -124,24 +124,24 @@ const double CONVERSTION_RATE_1 = 1.0;
 {
     if ([source isEqual:target])
     {
-        return @(CONVERSTION_RATE_1);
+        return @(CONVERSTION_RATE_EQUAL);
     }
     
-    const BOOL isSourceBase = [self isBaseCurrency:source];
-    const BOOL isTargetBase = [self isBaseCurrency:target];
+    const BOOL isBaseSource = [self isBaseCurrency:source];
+    const BOOL isBaseTarget = [self isBaseCurrency:target];
     
-    NSAssert(!(isSourceBase && isTargetBase), @"Source and target can't be the base currency.");
+    NSAssert(!(isBaseSource && isBaseTarget), @"Source and target can't be the base currencies at the same time.");
     
     // Use an existing rate for the target currency.
     
-    if (isSourceBase)
+    if (isBaseSource)
     {
         return [self conversionRateForCurrency:target];
     }
     
     // Use the inverse rate for the source currency.
     
-    if (isTargetBase)
+    if (isBaseTarget)
     {
         NSNumber* rate = [self conversionRateForCurrency:source];
         
@@ -159,7 +159,7 @@ const double CONVERSTION_RATE_1 = 1.0;
     if (sourceRate != nil && sourceRate.doubleValue > 0 &&
         targetRate != nil && targetRate.doubleValue > 0)
     {
-        return @(targetRate.doubleValue / sourceRate.doubleValue);
+        return @(fabs(targetRate.doubleValue / sourceRate.doubleValue));
     }
     
     return nil;
@@ -174,14 +174,14 @@ const double CONVERSTION_RATE_1 = 1.0;
 
 - (nullable NSNumber*) unitsFromAmount:(double)amount forCurrency:(nonnull Currency*)currency
 {
-    if ([[CurrencyProvider sharedInstance] isBaseCurrency:currency])
+    if ([self isBaseCurrency:currency])
     {
         return @(fabs(amount));
     }
     
     NSNumber* rate = [[CurrencyProvider sharedInstance] conversionRateForCurrency:currency];
     
-    return (rate != nil ? @(amount / rate.doubleValue) : nil);
+    return (rate != nil ? @(fabs(amount / rate.doubleValue)) : nil);
 }
 
 - (nullable NSNumber*) amountFromUnits:(double)units inCurrency:(nonnull Currency*)currency
@@ -193,7 +193,7 @@ const double CONVERSTION_RATE_1 = 1.0;
     
     NSNumber* rate = [[CurrencyProvider sharedInstance] conversionRateForCurrency:currency];
     
-    return (rate != nil ? @(units * rate.doubleValue) : nil);
+    return (rate != nil ? @(fabs(units * rate.doubleValue)) : nil);
 }
 
 #pragma mark - Refresh courses
