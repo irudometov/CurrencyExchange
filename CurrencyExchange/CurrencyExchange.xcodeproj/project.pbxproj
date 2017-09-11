@@ -23,6 +23,7 @@
 		36501F711F66F2A000B70691 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36501F701F66F2A000B70691 /* Localizable.strings */; };
 		36501F741F67032700B70691 /* ExchangeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F731F67032700B70691 /* ExchangeTransaction.m */; };
 		36501F761F670B5F00B70691 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36501F751F670B5F00B70691 /* Errors.strings */; };
+		36501F791F671C3700B70691 /* UIViewController+Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F781F671C3700B70691 /* UIViewController+Errors.m */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
@@ -76,6 +77,8 @@
 		36501F721F67032700B70691 /* ExchangeTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeTransaction.h; sourceTree = "<group>"; };
 		36501F731F67032700B70691 /* ExchangeTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeTransaction.m; sourceTree = "<group>"; };
 		36501F751F670B5F00B70691 /* Errors.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Errors.strings; sourceTree = "<group>"; };
+		36501F771F671C3700B70691 /* UIViewController+Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Errors.h"; sourceTree = "<group>"; };
+		36501F781F671C3700B70691 /* UIViewController+Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Errors.m"; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 			children = (
 				36501F6C1F66F0FE00B70691 /* NSNumber+Currency.h */,
 				36501F6D1F66F0FE00B70691 /* NSNumber+Currency.m */,
+				36501F771F671C3700B70691 /* UIViewController+Errors.h */,
+				36501F781F671C3700B70691 /* UIViewController+Errors.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */,
 				36501F741F67032700B70691 /* ExchangeTransaction.m in Sources */,
 				36501F6A1F66A45100B70691 /* Utils.m in Sources */,
+				36501F791F671C3700B70691 /* UIViewController+Errors.m in Sources */,
 				36501F5E1F65876900B70691 /* CarouselView.m in Sources */,
 				36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */,
 				36D2856A1F63F453007B0034 /* Account.m in Sources */,

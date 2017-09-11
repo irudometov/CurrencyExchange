@@ -10,8 +10,9 @@
 #import "CarouselView.h"
 #import "AccountRecordView.h"
 #import "CurrencyProvider.h"
-#import "UIView+Ex.h"
 #import "Utils.h"
+#import "UIView+Ex.h"
+#import "UIViewController+Errors.h"
 
 // Exchange view controller
 
@@ -233,7 +234,10 @@
     
     // Display error otherwise.
     
-    NSLog(@"Exchange is failed: %@", error);
+    if (error != nil)
+    {
+        [self displayError:error];
+    }
 }
 
 @end
