@@ -169,9 +169,4 @@
     return [[self class] localizedRateFrom:self.sourceRecord.currency to:self.targetRecord.currency];
 }
 
-- (nonnull NSString*) localizedInverseRate
-{
-    return [[self class] localizedRateFrom:self.targetRecord.currency to:self.sourceRecord.currency];
-}
-
 @end
