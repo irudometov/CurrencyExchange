@@ -51,8 +51,12 @@
 
 - (void) bindData
 {
+    _sourceCarousel.page = self.viewModel.sourceRecordIndex;
+    _destinationCarousel.page = self.viewModel.targetRecordIndex;
+    
     [_sourceCarousel bindData];
     [_destinationCarousel bindData];
+    
     [self updateExchangeButton];
     [self updateTitle];
 }

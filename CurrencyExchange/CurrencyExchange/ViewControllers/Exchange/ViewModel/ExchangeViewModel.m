@@ -24,7 +24,7 @@
     {
         _unitsToExchange = 0;
         _sourceRecordIndex = 0;
-        _targetRecordIndex = 0;
+        _targetRecordIndex = MIN(MAX(self.numberOfRecords - 1, 0), 1);
     }
     
     return self;

@@ -113,7 +113,7 @@ const NSInteger kError_InsufficientFunds = 103;
         return NO;
     }
     
-    // Commit transaction: create new source and target records and replace existing.
+    // Commit transaction: create new source and target records to replace existing.
     
     @synchronized (_lockObject)
     {
