@@ -19,6 +19,8 @@
 		36501F631F66820300B70691 /* CurrencyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F621F66820300B70691 /* CurrencyPair.m */; };
 		36501F661F66A20400B70691 /* AccountViewModel+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F651F66A20400B70691 /* AccountViewModel+Private.m */; };
 		36501F6A1F66A45100B70691 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F691F66A45100B70691 /* Utils.m */; };
+		36501F6E1F66F0FE00B70691 /* NSNumber+Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F6D1F66F0FE00B70691 /* NSNumber+Currency.m */; };
+		36501F711F66F2A000B70691 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36501F701F66F2A000B70691 /* Localizable.strings */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
@@ -66,6 +68,9 @@
 		36501F651F66A20400B70691 /* AccountViewModel+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AccountViewModel+Private.m"; sourceTree = "<group>"; };
 		36501F681F66A45100B70691 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		36501F691F66A45100B70691 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		36501F6C1F66F0FE00B70691 /* NSNumber+Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Currency.h"; sourceTree = "<group>"; };
+		36501F6D1F66F0FE00B70691 /* NSNumber+Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Currency.m"; sourceTree = "<group>"; };
+		36501F701F66F2A000B70691 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -178,6 +183,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		36501F6B1F66F0EF00B70691 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				36501F6C1F66F0FE00B70691 /* NSNumber+Currency.h */,
+				36501F6D1F66F0FE00B70691 /* NSNumber+Currency.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		36501F6F1F66F28D00B70691 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				36501F701F66F2A000B70691 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		36D2851C1F63EE14007B0034 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				36D285591F63F1FB007B0034 /* Core */,
+				36501F6F1F66F28D00B70691 /* Localization */,
 				36D2855F1F63F1FB007B0034 /* Views */,
 				36D2854D1F63EE9C007B0034 /* ViewControllers */,
 				36D2852B1F63EE14007B0034 /* AppDelegate.h */,
@@ -266,6 +289,7 @@
 				36D2855A1F63F1FB007B0034 /* Account */,
 				36D285641F63F29F007B0034 /* Currency */,
 				36D2855B1F63F1FB007B0034 /* CurrencyProvider */,
+				36501F6B1F66F0EF00B70691 /* Extensions */,
 				36D2855E1F63F1FB007B0034 /* NetworkService */,
 				36501F671F66A44300B70691 /* Utils */,
 			);
@@ -413,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36D285381F63EE14007B0034 /* LaunchScreen.storyboard in Resources */,
+				36501F711F66F2A000B70691 /* Localizable.strings in Resources */,
 				36501F561F6579ED00B70691 /* AccountRecordView.xib in Resources */,
 				36D285351F63EE14007B0034 /* Assets.xcassets in Resources */,
 				36D285331F63EE14007B0034 /* Main.storyboard in Resources */,
@@ -450,6 +475,7 @@
 				36D2856D1F63F510007B0034 /* AccountRecord.m in Sources */,
 				363255FC1F651EEF003E10F2 /* AccountViewModel.m in Sources */,
 				36501F661F66A20400B70691 /* AccountViewModel+Private.m in Sources */,
+				36501F6E1F66F0FE00B70691 /* NSNumber+Currency.m in Sources */,
 				36D2852A1F63EE14007B0034 /* main.m in Sources */,
 				36501F541F65799E00B70691 /* AccountRecordView.m in Sources */,
 			);

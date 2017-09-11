@@ -25,7 +25,7 @@
 @property (nullable, nonatomic, weak) IBOutlet UILabel* currencyCodeLabel;
 @property (nullable, nonatomic, weak) IBOutlet UILabel* currentAmountLabel;
 @property (nullable, nonatomic, weak) IBOutlet UITextField* amountTextField;
-@property (nullable, nonatomic, weak) IBOutlet UILabel* errorLabel;
+@property (nullable, nonatomic, weak) IBOutlet UILabel* descriptionLabel;
 
 @property (nullable, nonatomic, weak) id <AccountRecordViewDelegate> delegate;
 

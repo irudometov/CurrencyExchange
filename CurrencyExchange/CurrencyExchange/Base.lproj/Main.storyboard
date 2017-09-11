@@ -118,17 +118,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSU-C0-MHH" userLabel="Source placeholder">
-                                <rect key="frame" x="0.0" y="64" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="140"/>
                                 <color key="backgroundColor" red="0.7843137255" green="0.81568627449999997" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="fGM-YF-QBo"/>
+                                    <constraint firstAttribute="height" constant="140" id="fGM-YF-QBo"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bb2-oy-rMq" userLabel="Destination placeholder">
-                                <rect key="frame" x="0.0" y="224" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="204" width="375" height="140"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="BoS-tx-7i0"/>
+                                    <constraint firstAttribute="height" constant="140" id="BoS-tx-7i0"/>
                                 </constraints>
                             </view>
                         </subviews>

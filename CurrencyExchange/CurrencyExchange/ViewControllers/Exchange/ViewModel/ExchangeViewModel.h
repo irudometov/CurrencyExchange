@@ -31,6 +31,14 @@
 - (double) balanceForRecortAtIndex:(NSInteger)index;
 - (BOOL) hasEnoughMoneyForRecordAtIndex:(NSInteger)index;
 
+// Localization
+
+- (nonnull NSString*) localizedBalanceForRecordAtIndex:(NSInteger)index checkEnoughMoney:(BOOL)checkEnoughMoney;
++ (nonnull NSString*) localizedBalanceForRecord:(nonnull AccountRecord*)record enough:(BOOL)enough;
++ (nonnull NSString*) localizedRateFrom:(nonnull Currency*)source to:(nonnull Currency*)target;
+- (nonnull NSString*) localizedRate;
+- (nonnull NSString*) localizedInverseRate;
+
 // A basic mechanism to exchange currencies between 2 records.
 
 - (void) exchange:(double)amount

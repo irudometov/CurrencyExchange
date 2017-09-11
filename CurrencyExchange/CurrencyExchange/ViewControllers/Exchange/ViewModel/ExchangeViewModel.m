@@ -9,6 +9,7 @@
 #import "ExchangeViewModel.h"
 #import "AccountViewModel+Private.h"
 #import "CurrencyProvider.h"
+#import "NSNumber+Currency.h"
 
 // Exchange view model
 
@@ -95,6 +96,52 @@
          toRecord:(nonnull AccountRecord*)destination
 {
     NSLog(@"exchange %.2f from %@ to %@", amount, source.currency.code, destination.currency.code);
+}
+
+#pragma mark - Localization
+
+- (nonnull NSString*) localizedBalanceForRecordAtIndex:(NSInteger)index checkEnoughMoney:(BOOL)checkEnoughMoney
+{
+    AccountRecord* record = [super recordAtIndex:index];
+    const BOOL enough = (checkEnoughMoney ? [self hasEnoughMoneyForRecordAtIndex:index] : YES);
+    
+    return [[self class] localizedBalanceForRecord:record enough:enough];
+}
+
++ (nonnull NSString*) localizedBalanceForRecord:(nonnull AccountRecord*)record enough:(BOOL)enough
+{
+    NSString* format = (enough ? @"account_record_balance_format" : @"account_record_not_enough_balance_format");
+    NSString* amount = [@(record.amount) formatAsCurrency:record.currency];
+    
+    if (amount == nil)
+    {
+        amount = @(record.amount).stringValue;
+    }
+    
+    return [NSString stringWithFormat:NSLocalizedString(format, nil), amount];
+}
+
++ (nonnull NSString*) localizedRateFrom:(nonnull Currency*)source to:(nonnull Currency*)target
+{
+    NSString* localizedSource = [@(1) formatAsCurrency:source];
+    NSNumber* rate = [[CurrencyProvider sharedInstance] conversionRateFrom:source to:target];
+    
+    if (rate != nil)
+    {
+        return [NSString stringWithFormat:@"%@=%@", localizedSource, [rate formatAsCurrency:target]];
+    }
+    
+    return @"";
+}
+
+- (nonnull NSString*) localizedRate
+{
+    return [[self class] localizedRateFrom:self.sourceRecord.currency to:self.targetRecord.currency];
+}
+
+- (nonnull NSString*) localizedInverseRate
+{
+    return [[self class] localizedRateFrom:self.targetRecord.currency to:self.sourceRecord.currency];
 }
 
 @end

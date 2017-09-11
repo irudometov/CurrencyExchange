@@ -54,6 +54,7 @@
     [_sourceCarousel bindData];
     [_destinationCarousel bindData];
     [self updateExchangeButton];
+    [self updateTitle];
 }
 
 #pragma mark - Setup views
@@ -98,6 +99,10 @@
     {
         NSLog(@"source page is %ld", (long)carouselView.page);
         self.viewModel.sourceRecordIndex = carouselView.page;
+        
+        // Update courses for the new source currency.
+        
+        [_destinationCarousel bindData];
     }
     else if (carouselView == _destinationCarousel)
     {
@@ -106,14 +111,28 @@
     }
     
     [self updateExchangeButton];
+    [self updateTitle];
 }
 
 - (void) carouselView:(nonnull CarouselView*)carouselView bindRecordView:(nonnull AccountRecordView*)recordView forPage:(NSInteger)page
 {
+    const BOOL isSource = (carouselView == _sourceCarousel);
+    
     AccountRecord* record = [self.viewModel recordAtIndex:page];
     
     recordView.currencyCodeLabel.text = record.currency.code;
-    recordView.errorLabel.text = nil;
+    recordView.descriptionLabel.text = nil;
+    
+    if (!isSource)
+    {
+        Currency* source = self.viewModel.sourceRecord.currency;
+        Currency* target = [self.viewModel currencyAtIndex:page];
+        
+        if (![source isEqual:target])
+        {
+            recordView.descriptionLabel.text = [ExchangeViewModel localizedRateFrom:target to:source];
+        }
+    }
     
     // Display the amount to exchange for the current currency.
     
@@ -127,15 +146,14 @@
     
     // Display a warning message if the user doesn't have enough money to exchange.
     
-    if (carouselView == _sourceCarousel && ![self.viewModel hasEnoughMoneyForRecordAtIndex:page])
+    recordView.currentAmountLabel.text = [self.viewModel localizedBalanceForRecordAtIndex:page checkEnoughMoney:isSource];
+    
+    if (isSource && ![self.viewModel hasEnoughMoneyForRecordAtIndex:page])
     {
         recordView.currentAmountLabel.textColor = [UIColor redColor];
-        recordView.currentAmountLabel.text = [NSString stringWithFormat:@"You only have %.2f", record.amount];
     }
-    else
-    {
+    else {
         recordView.currentAmountLabel.textColor = [UIColor lightGrayColor];
-        recordView.currentAmountLabel.text = [NSString stringWithFormat:@"You have %.2f", record.amount];
     }
 }
 
@@ -143,12 +161,12 @@
 {
     // Calculate a new amount to convert using an appropriate currency.
     
-    const BOOL isSource = (carouselView == _sourceCarousel);
+//    const BOOL isSource = (carouselView == _sourceCarousel);
     Currency* currency = [self.viewModel currencyAtIndex:page];
     
     NSNumber* amount = [Utils amountFromString:recordView.amountTextField.text];
     NSNumber* unitsToExchange = [[CurrencyProvider sharedInstance] unitsFromAmount:amount.doubleValue forCurrency:currency];
-    NSLog(@"source: %@, amount = %@, units = %@", @(isSource), amount, unitsToExchange);
+//    NSLog(@"source: %@, amount = %@, units = %@", @(isSource), amount, unitsToExchange);
 
     // Set new value and refresh views.
     
@@ -159,12 +177,19 @@
     }
 }
 
-#pragma mark - Exchange button
+#pragma mark - Title view
 
 - (void) updateExchangeButton
 {
-    // Block exchange operation if the amount to exchange is not enough
-    // or the source and target records are the same.
+    self.title = [self.viewModel localizedRate];
+}
+
+#pragma mark - Exchange button
+
+- (void) updateTitle
+{
+    // Block exchange operation if the amount to exchange is not enough,
+    // the source and target records are the same or the input is empty.
     
     AccountRecord* source = [self.viewModel sourceRecord];
     AccountRecord* target = [self.viewModel targetRecord];

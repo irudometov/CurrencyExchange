@@ -27,7 +27,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="500" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-Cr-azo">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="500" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-Cr-azo">
                     <rect key="frame" x="160" y="30" width="200" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Ws5-XW-xpO"/>
@@ -36,10 +36,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiC-p4-Gde">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiC-p4-Gde" userLabel="Description label">
                     <rect key="frame" x="279" y="74" width="81" height="15"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -61,7 +61,7 @@
                 <outlet property="amountTextField" destination="DCe-Cr-azo" id="Pzl-ov-pIz"/>
                 <outlet property="currencyCodeLabel" destination="nEi-9m-lTt" id="u9T-63-Icn"/>
                 <outlet property="currentAmountLabel" destination="04j-a9-qaJ" id="AwW-kX-8RH"/>
-                <outlet property="errorLabel" destination="eiC-p4-Gde" id="Jrf-yT-XfS"/>
+                <outlet property="descriptionLabel" destination="eiC-p4-Gde" id="5Mq-t7-vuK"/>
             </connections>
             <point key="canvasLocation" x="-217.5" y="-70"/>
         </view>

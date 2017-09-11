@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  CurrencyExchange
+
+  Created by Ilya Rudometov on 11/09/2017.
+  Copyright © 2017 Ilya Rudometov. All rights reserved.
+*/
+
+/* Account record balance */
+
+"account_record_balance_format" = "You have %@";
+"account_record_not_enough_balance_format" = "You have only %@";
