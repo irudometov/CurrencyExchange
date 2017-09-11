@@ -60,7 +60,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZi-kr-v8G">
-                                                    <rect key="frame" x="172" y="28" width="179" height="33"/>
+                                                    <rect key="frame" x="170" y="28" width="180" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="5Gs-Gd-krv"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -70,8 +73,8 @@
                                                 <constraint firstItem="sK5-Y9-WH1" firstAttribute="leading" secondItem="XxB-gH-UTr" secondAttribute="leadingMargin" constant="16" id="A1r-cj-i4u"/>
                                                 <constraint firstItem="yZi-kr-v8G" firstAttribute="centerY" secondItem="sK5-Y9-WH1" secondAttribute="centerY" id="c0V-hd-4CL"/>
                                                 <constraint firstItem="sK5-Y9-WH1" firstAttribute="centerY" secondItem="XxB-gH-UTr" secondAttribute="centerY" id="dgw-q9-wFJ"/>
-                                                <constraint firstItem="yZi-kr-v8G" firstAttribute="leading" secondItem="sK5-Y9-WH1" secondAttribute="trailing" constant="18" id="iiV-Lx-EBh"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="yZi-kr-v8G" secondAttribute="trailing" constant="16" id="xz8-OC-0Uy"/>
+                                                <constraint firstItem="yZi-kr-v8G" firstAttribute="leading" secondItem="sK5-Y9-WH1" secondAttribute="trailing" constant="16" id="iiV-Lx-EBh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yZi-kr-v8G" secondAttribute="trailing" constant="17" id="xz8-OC-0Uy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
