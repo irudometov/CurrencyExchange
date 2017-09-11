@@ -13,7 +13,6 @@
 
 @interface AccountRecord : NSObject
 
-@property (nonnull, nonatomic, readonly) NSUUID* identifier;
 @property (nonnull, nonatomic, readonly) Currency* currency;
 @property (nonatomic, readonly) double amount;
 @property (nonnull, nonatomic, readonly) NSString* localizedAmountString;

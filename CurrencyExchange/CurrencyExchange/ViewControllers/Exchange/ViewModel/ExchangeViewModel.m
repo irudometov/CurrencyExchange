@@ -84,18 +84,48 @@
 - (BOOL) hasEnoughMoneyForRecordAtIndex:(NSInteger)index
 {
     const double balance = [self balanceForRecortAtIndex:index];
-    return (balance >= self.unitsToExchange);
+    
+    if (self.unitsToExchange > 0.01)
+    {
+        return balance - self.unitsToExchange > -0.01;
+    }
+    
+    return balance >= 0;
 }
 
 #pragma mark - Exchange
 
 // A basic mechanism to exchange currencies between 2 records.
 
-- (void) exchange:(double)amount
-       fromRecord:(nonnull AccountRecord*)source
-         toRecord:(nonnull AccountRecord*)destination
+- (BOOL) exchange:(NSError* _Nonnull __autoreleasing *_Nullable)error
 {
-    NSLog(@"exchange %.2f from %@ to %@", amount, source.currency.code, destination.currency.code);
+    AccountRecord* source = self.sourceRecord;
+    AccountRecord* target = self.targetRecord;
+    
+    CurrencyProvider* provider = [CurrencyProvider sharedInstance];
+    
+    NSNumber* amountToTake = [provider convert:self.unitsToExchange from:provider.baseCurrency to:source.currency error:error];
+    
+    if (amountToTake == nil)
+    {
+        return NO;
+    }
+    
+    NSNumber* amountToPut = [provider convert:self.unitsToExchange from:provider.baseCurrency to:target.currency error:error];
+    
+    if (amountToPut == nil)
+    {
+        return NO;
+    }
+    
+    ExchangeTransaction* transaction = [ExchangeTransaction transactionWithSourceCurrency:source.currency amountToTake:amountToTake.doubleValue targetCurrency:target.currency amountToPut:amountToPut.doubleValue];
+    
+    if (transaction != nil)
+    {
+        return [self.account performExchangeTransaction:transaction error:error];
+    }
+    
+    return NO;
 }
 
 #pragma mark - Localization

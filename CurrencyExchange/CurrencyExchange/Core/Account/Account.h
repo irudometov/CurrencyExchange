@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "AccountRecord.h"
+#import "ExchangeTransaction.h"
+
+// Errors
+
+extern NSString* _Nonnull const AccountErrorDomain;
+
+extern const NSInteger kError_InvalidAccountRecords;
+extern const NSInteger kError_AccountRecordNotFound;
+extern const NSInteger kError_InvalidAmount;
+extern const NSInteger kError_InsufficientFunds;
 
 // This class represents an analogue of 'bank account' with several currencies.
 
@@ -16,5 +26,7 @@
 @property (nonnull, nonatomic, readonly) NSArray<AccountRecord*>* records;
 
 - (void) addRecord:(nonnull AccountRecord*)record;
+
+- (BOOL) performExchangeTransaction:(nonnull ExchangeTransaction*)transaction error:(NSError* _Nonnull __autoreleasing *_Nullable)error;
 
 @end

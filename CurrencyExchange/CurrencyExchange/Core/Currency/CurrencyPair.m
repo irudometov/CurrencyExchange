@@ -31,7 +31,7 @@
     {
         self.source = source;
         self.target = target;
-        self.rate = fabs(rate);
+        self.rate = fabs(rate); // cause convertion rate can't be negative
     }
     
     return self;

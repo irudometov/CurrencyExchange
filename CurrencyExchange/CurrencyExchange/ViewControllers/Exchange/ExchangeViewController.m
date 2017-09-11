@@ -215,6 +215,21 @@
     AccountRecord* target = [self.viewModel targetRecord];
     
     NSLog(@"exchange %.2f EUR from %@ to %@", self.viewModel.unitsToExchange, source.currency.code, target.currency.code);
+    
+    NSError* error = nil;
+    
+    const BOOL exchanged = [self.viewModel exchange:&error];
+    
+    if (exchanged)
+    {
+        NSLog(@"Exchagned!");
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    
+    // Display error otherwise.
+    
+    NSLog(@"Exchange is failed: %@", error);
 }
 
 @end

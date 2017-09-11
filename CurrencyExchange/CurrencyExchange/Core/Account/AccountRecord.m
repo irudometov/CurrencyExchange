@@ -30,7 +30,6 @@
 {
     if (self = [super init])
     {
-        _identifier = [NSUUID UUID];
         self.currency = currency;
         self.amount = amount;
     }

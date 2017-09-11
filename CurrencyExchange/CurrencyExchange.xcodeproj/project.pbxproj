@@ -21,6 +21,8 @@
 		36501F6A1F66A45100B70691 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F691F66A45100B70691 /* Utils.m */; };
 		36501F6E1F66F0FE00B70691 /* NSNumber+Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F6D1F66F0FE00B70691 /* NSNumber+Currency.m */; };
 		36501F711F66F2A000B70691 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36501F701F66F2A000B70691 /* Localizable.strings */; };
+		36501F741F67032700B70691 /* ExchangeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F731F67032700B70691 /* ExchangeTransaction.m */; };
+		36501F761F670B5F00B70691 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36501F751F670B5F00B70691 /* Errors.strings */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
@@ -71,6 +73,9 @@
 		36501F6C1F66F0FE00B70691 /* NSNumber+Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Currency.h"; sourceTree = "<group>"; };
 		36501F6D1F66F0FE00B70691 /* NSNumber+Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Currency.m"; sourceTree = "<group>"; };
 		36501F701F66F2A000B70691 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		36501F721F67032700B70691 /* ExchangeTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeTransaction.h; sourceTree = "<group>"; };
+		36501F731F67032700B70691 /* ExchangeTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeTransaction.m; sourceTree = "<group>"; };
+		36501F751F670B5F00B70691 /* Errors.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Errors.strings; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -196,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				36501F701F66F2A000B70691 /* Localizable.strings */,
+				36501F751F670B5F00B70691 /* Errors.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -303,6 +309,8 @@
 				36D285691F63F453007B0034 /* Account.m */,
 				36D2856B1F63F510007B0034 /* AccountRecord.h */,
 				36D2856C1F63F510007B0034 /* AccountRecord.m */,
+				36501F721F67032700B70691 /* ExchangeTransaction.h */,
+				36501F731F67032700B70691 /* ExchangeTransaction.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -440,6 +448,7 @@
 				36501F711F66F2A000B70691 /* Localizable.strings in Resources */,
 				36501F561F6579ED00B70691 /* AccountRecordView.xib in Resources */,
 				36D285351F63EE14007B0034 /* Assets.xcassets in Resources */,
+				36501F761F670B5F00B70691 /* Errors.strings in Resources */,
 				36D285331F63EE14007B0034 /* Main.storyboard in Resources */,
 				36501F601F65878A00B70691 /* CarouselView.xib in Resources */,
 			);
@@ -468,6 +477,7 @@
 				36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */,
 				36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */,
 				363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */,
+				36501F741F67032700B70691 /* ExchangeTransaction.m in Sources */,
 				36501F6A1F66A45100B70691 /* Utils.m in Sources */,
 				36501F5E1F65876900B70691 /* CarouselView.m in Sources */,
 				36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */,

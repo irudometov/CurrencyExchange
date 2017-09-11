@@ -1,0 +1,18 @@
+/* 
+  Errors.strings
+  CurrencyExchange
+
+  Created by Ilya Rudometov on 11/09/2017.
+  Copyright © 2017 Ilya Rudometov. All rights reserved.
+*/
+
+/* Unknown error */
+
+"unknown_error" = "Unknown error has occured.";
+
+/* Account errors */
+
+"error_invalid_account_records" = "Invalid account records.";
+"error_account_record_not_found" = "Account record is not found.";
+"error_invalid_amount" = "Invalid amount.";
+"error_insufficient_funds" = "Insufficient funds.";

@@ -41,8 +41,6 @@
 
 // A basic mechanism to exchange currencies between 2 records.
 
-- (void) exchange:(double)amount
-       fromRecord:(nonnull AccountRecord*)source
-         toRecord:(nonnull AccountRecord*)destination;
+- (BOOL) exchange:(NSError* _Nonnull __autoreleasing *_Nullable)error;
 
 @end
