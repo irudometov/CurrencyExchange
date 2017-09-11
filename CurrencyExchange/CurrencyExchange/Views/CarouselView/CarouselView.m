@@ -126,6 +126,8 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     [self adjustContentOffset];
     [self adjustFrames];
     
+    self.pageControl.currentPage = self.page;
+    
     if ([self.delegate respondsToSelector:@selector(carouselViewDidChangePage:)])
     {
         [self.delegate carouselViewDidChangePage:self];
