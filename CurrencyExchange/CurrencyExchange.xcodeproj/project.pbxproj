@@ -17,6 +17,8 @@
 		36501F5E1F65876900B70691 /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F5D1F65876900B70691 /* CarouselView.m */; };
 		36501F601F65878A00B70691 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36501F5F1F65878A00B70691 /* CarouselView.xib */; };
 		36501F631F66820300B70691 /* CurrencyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F621F66820300B70691 /* CurrencyPair.m */; };
+		36501F661F66A20400B70691 /* AccountViewModel+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F651F66A20400B70691 /* AccountViewModel+Private.m */; };
+		36501F6A1F66A45100B70691 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F691F66A45100B70691 /* Utils.m */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
@@ -60,6 +62,10 @@
 		36501F5F1F65878A00B70691 /* CarouselView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
 		36501F611F66820300B70691 /* CurrencyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyPair.h; sourceTree = "<group>"; };
 		36501F621F66820300B70691 /* CurrencyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPair.m; sourceTree = "<group>"; };
+		36501F641F66A20400B70691 /* AccountViewModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AccountViewModel+Private.h"; sourceTree = "<group>"; };
+		36501F651F66A20400B70691 /* AccountViewModel+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AccountViewModel+Private.m"; sourceTree = "<group>"; };
+		36501F681F66A45100B70691 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		36501F691F66A45100B70691 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +116,8 @@
 				363255FB1F651EEF003E10F2 /* AccountViewModel.m */,
 				363255FD1F651F08003E10F2 /* AccountViewModel+DefaultAccount.h */,
 				363255FE1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m */,
+				36501F641F66A20400B70691 /* AccountViewModel+Private.h */,
+				36501F651F66A20400B70691 /* AccountViewModel+Private.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -159,6 +167,15 @@
 				36501F5F1F65878A00B70691 /* CarouselView.xib */,
 			);
 			path = CarouselView;
+			sourceTree = "<group>";
+		};
+		36501F671F66A44300B70691 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				36501F681F66A45100B70691 /* Utils.h */,
+				36501F691F66A45100B70691 /* Utils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		36D2851C1F63EE14007B0034 = {
@@ -250,6 +267,7 @@
 				36D285641F63F29F007B0034 /* Currency */,
 				36D2855B1F63F1FB007B0034 /* CurrencyProvider */,
 				36D2855E1F63F1FB007B0034 /* NetworkService */,
+				36501F671F66A44300B70691 /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -433,11 +451,13 @@
 				36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */,
 				36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */,
 				363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */,
+				36501F6A1F66A45100B70691 /* Utils.m in Sources */,
 				36501F5E1F65876900B70691 /* CarouselView.m in Sources */,
 				36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */,
 				36D2856A1F63F453007B0034 /* Account.m in Sources */,
 				36D2856D1F63F510007B0034 /* AccountRecord.m in Sources */,
 				363255FC1F651EEF003E10F2 /* AccountViewModel.m in Sources */,
+				36501F661F66A20400B70691 /* AccountViewModel+Private.m in Sources */,
 				36D2852A1F63EE14007B0034 /* main.m in Sources */,
 				36501F541F65799E00B70691 /* AccountRecordView.m in Sources */,
 			);

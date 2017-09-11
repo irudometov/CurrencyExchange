@@ -37,6 +37,9 @@ extern const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL;
 - (nullable NSNumber*) conversionRateForCurrency:(nonnull Currency*)currency;
 - (nullable NSNumber*) conversionRateFrom:(nonnull Currency*)source to:(nonnull Currency*)target;
 
+- (nullable NSNumber*) unitsFromAmount:(double)amount forCurrency:(nonnull Currency*)currency;
+- (nullable NSNumber*) amountFromUnits:(double)units inCurrency:(nonnull Currency*)currency;
+
 - (void) refreshCurrenciesWithCompletion:(nonnull CurrencyProviderCallback)callback;
 
 @end

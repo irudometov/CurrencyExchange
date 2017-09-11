@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+// Delegate
+
+@class AccountRecordView;
+
 @protocol AccountRecordViewDelegate <NSObject>
 
-
+- (void) acountRecordViewDidChangeInput:(nonnull AccountRecordView*)recordView;
 
 @end
 

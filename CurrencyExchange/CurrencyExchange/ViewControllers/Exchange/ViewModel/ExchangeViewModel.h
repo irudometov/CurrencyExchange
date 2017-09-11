@@ -13,8 +13,15 @@
 
 @interface ExchangeViewModel : AccountViewModel
 
+@property (nonatomic, readwrite) double unitsToExchange;
+
 @property (nonnull, nonatomic, readonly) AccountRecord* sourceRecord;
 @property (nonnull, nonatomic, readonly) AccountRecord* destinationRecord;
+
+- (nullable NSNumber*) unitsToExchangeInCurrency:(nonnull Currency*)currency;
+
+- (nonnull Currency*) sourceCurrencyAtIndex:(NSInteger)index;
+- (nonnull Currency*) destinationCurrencyAtIndex:(NSInteger)index;
 
 // A basic mechanism to exchange currencies between 2 records.
 

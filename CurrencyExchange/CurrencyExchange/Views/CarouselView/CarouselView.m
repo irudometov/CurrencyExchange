@@ -16,7 +16,7 @@ static const CGFloat BOTTOM_PADDING = 24; // px
 
 // Carousel view
 
-@interface CarouselView () <UIScrollViewDelegate>
+@interface CarouselView () <UIScrollViewDelegate, AccountRecordViewDelegate>
 
 @property (nullable, nonatomic, weak) IBOutlet UIScrollView* scrollView;
 @property (nullable, nonatomic, weak) IBOutlet UIPageControl* pageControl;
@@ -28,6 +28,8 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     NSInteger _internalPage;
     NSInteger _pageCount;
     NSMutableArray<AccountRecordView*>* _views;
+    
+    BOOL _isBindingData;
 }
 
 #pragma mark - init / deinit
@@ -37,6 +39,7 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     if (self = [super initWithFrame:frame])
     {
         _views = [NSMutableArray<AccountRecordView*> new];
+        _isBindingData = NO;
     }
     
     return self;
@@ -47,6 +50,7 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     if (self = [super initWithCoder:coder])
     {
         _views = [NSMutableArray<AccountRecordView*> new];
+        _isBindingData = NO;
     }
     
     return self;
@@ -87,7 +91,8 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     {
         for (NSInteger i = _views.count - 1; i >= VIEWS_COUNT; --i)
         {
-            UIView* view = _views[i];
+            AccountRecordView* view = _views[i];
+            view.delegate = nil;
             [view removeFromSuperview];
         }
     }
@@ -97,6 +102,7 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     for (NSInteger i = _views.count; i < VIEWS_COUNT; ++i)
     {
         AccountRecordView* view = [AccountRecordView loadFromNib];
+        view.delegate = self;
         [_views addObject:view];
         [self.scrollView addSubview:view];
     }
@@ -106,9 +112,14 @@ static const CGFloat BOTTOM_PADDING = 24; // px
 
 #pragma mark - Page
 
+- (NSInteger) pageFromInternal:(NSInteger)intenral
+{
+    return (intenral % self.pageCount);
+}
+
 - (NSUInteger) page
 {
-    return (_internalPage % self.pageCount);
+    return [self pageFromInternal:_internalPage];
 }
 
 - (void) setPage:(NSUInteger)page
@@ -148,6 +159,21 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     [self adjustFrames];
 }
 
+#pragma mark - Bind data
+
+- (void) bindData
+{
+    if ([self.delegate respondsToSelector:@selector(carouselView:bindRecordView:forPage:)])
+    {
+        for (NSInteger internalPage = _internalPage - 1; internalPage <= _internalPage + 1; ++internalPage)
+        {
+            AccountRecordView* view = [self viewForInternalPage:internalPage];
+            const NSInteger page = [self pageFromInternal:internalPage];
+            [self.delegate carouselView:self bindRecordView:view forPage:page];
+        }
+    }
+}
+
 #pragma mark - Manage views
 
 - (nonnull NSArray<UIView*>*)views
@@ -172,18 +198,10 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     }
 }
 
-- (void) adjustViewForPage:(NSInteger)page
+- (void) adjustViewForPage:(NSInteger)internalPage
 {
-    const NSInteger index = [self viewIndexForPage:page];
-    AccountRecordView* view = self.views[index];
-    view.frame = [self frameForPage:page];
-    
-    // Bind data
-    
-    if ([self.delegate respondsToSelector:@selector(carouselView:bindRecordView:forPage:)])
-    {
-        [self.delegate carouselView:self bindRecordView:view forPage:page % self.pageCount];
-    }
+    AccountRecordView* view = [self viewForInternalPage:internalPage];
+    view.frame = [self frameForPage:internalPage];
 }
 
 - (NSInteger) viewIndexForPage:(NSInteger)page
@@ -196,6 +214,12 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     }
     
     return labs(labs(page) % viewsCount - viewsCount) % viewsCount;
+}
+
+- (nonnull AccountRecordView*) viewForInternalPage:(NSInteger)page
+{
+    const NSInteger index = [self viewIndexForPage:page];
+    return self.views[index];
 }
 
 - (CGPoint) offsetForPage:(NSInteger)page
@@ -245,6 +269,32 @@ static const CGFloat BOTTOM_PADDING = 24; // px
     if (self.scrollView.bounds.size.width > 0)
     {
         self.page = (self.scrollView.contentOffset.x / self.scrollView.bounds.size.width);
+    }
+}
+
+- (NSInteger) internalPageForRecordView:(nonnull AccountRecordView*)recordView
+{
+    if (self.scrollView.bounds.size.width > 0)
+    {
+        return roundf(recordView.frame.origin.x / self.scrollView.bounds.size.width);
+    }
+    
+    return NSNotFound;
+}
+
+- (void) acountRecordViewDidChangeInput:(nonnull AccountRecordView*)recordView
+{
+    // Get a valid number from the text input.
+    
+    const NSInteger internalPage = [self internalPageForRecordView:recordView];
+    
+    if (internalPage != NSNotFound)
+    {
+        if ([self.delegate respondsToSelector:@selector(carouselView:didChangeInput:forPage:)])
+        {
+            const NSInteger page = [self pageFromInternal:internalPage];
+            [self.delegate carouselView:self didChangeInput:recordView forPage:page];
+        }
     }
 }
 

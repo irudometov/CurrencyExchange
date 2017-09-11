@@ -9,8 +9,9 @@
 #import "ExchangeViewController.h"
 #import "CarouselView.h"
 #import "AccountRecordView.h"
-#import "UIView+Ex.h"
 #import "CurrencyProvider.h"
+#import "UIView+Ex.h"
+#import "Utils.h"
 
 // Exchange view controller
 
@@ -43,6 +44,8 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [_sourceCarousel bindData];
+    [_destinationCarousel bindData];
 }
 
 #pragma mark - Setup views
@@ -99,8 +102,43 @@
     
     recordView.currencyCodeLabel.text = record.currency.code;
     recordView.currentAmountLabel.text = [NSString stringWithFormat:@"You have %.2f", record.amount];
-    recordView.amountTextField.text = @"1";
     recordView.errorLabel.text = nil;
+    
+    Currency* currency = [self.viewModel currencyAtIndex:page];
+    NSNumber* units = [self.viewModel unitsToExchangeInCurrency:currency];
+    
+    if (recordView.amountTextField.isFirstResponder == NO)
+    {
+        recordView.amountTextField.text = [Utils stringFromAmount:units];
+    }
+}
+
+- (void) carouselView:(nonnull CarouselView*)carouselView didChangeInput:(nonnull AccountRecordView*)recordView forPage:(NSInteger)page
+{
+    // Calculate a new amount to convert using an appropriate currency.
+    
+    const BOOL isSource = (carouselView == _sourceCarousel);
+    Currency* currency = [self.viewModel currencyAtIndex:page];
+    
+    NSNumber* amount = [Utils amountFromString:recordView.amountTextField.text];
+    
+    if (amount == nil)
+    {
+        amount = @(0);
+    }
+    
+    NSNumber* unitsToExchange = [[CurrencyProvider sharedInstance] unitsFromAmount:amount.doubleValue forCurrency:currency];
+    NSLog(@"source: %@, amount = %@, units = %@", @(isSource), amount, unitsToExchange);
+
+    // Set new value and refresh views.
+    
+    if (unitsToExchange != nil)
+    {
+        self.viewModel.unitsToExchange = unitsToExchange.doubleValue;
+
+        [_sourceCarousel bindData];
+        [_destinationCarousel bindData];
+    }
 }
 
 #pragma mark - Actions
@@ -112,21 +150,7 @@
 
 - (IBAction) exchange:(id)sender
 {
-    NSNumber* eur = [[CurrencyProvider sharedInstance] conversionRateForCurrency:[Currency EUR]];
-    NSNumber* usd = [[CurrencyProvider sharedInstance] conversionRateForCurrency:[Currency USD]];
-    NSNumber* gbp = [[CurrencyProvider sharedInstance] conversionRateForCurrency:[Currency GBP]];
-    NSNumber* usd_gbp = [[CurrencyProvider sharedInstance] conversionRateFrom:[Currency USD] to:[Currency GBP]];
-    NSNumber* gbp_usd = [[CurrencyProvider sharedInstance] conversionRateFrom:[Currency GBP] to:[Currency USD]];
-    
-    NSLog(@"eur: %@", eur);
-    NSLog(@"usd: %@", usd);
-    NSLog(@"gbp: %@", gbp);
-    NSLog(@"usd_gbp: %@", usd_gbp);
-    NSLog(@"gbp_usd: %@", gbp_usd);
-    
-    [self.viewModel exchange:10
-                  fromRecord:self.viewModel.sourceRecord
-                    toRecord:self.viewModel.destinationRecord];
+    NSLog(@"exchange %.2f EUR", self.viewModel.unitsToExchange);
 }
 
 @end

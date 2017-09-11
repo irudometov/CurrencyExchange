@@ -7,6 +7,8 @@
 //
 
 #import "ExchangeViewModel.h"
+#import "AccountViewModel+Private.h"
+#import "CurrencyProvider.h"
 
 // Exchange view model
 
@@ -14,6 +16,18 @@
 {
     AccountRecord* _sourceRecord;
     AccountRecord* _destinationRecord;
+    
+    double _unitsToExchange;
+}
+
+- (nullable instancetype) initWithAccount:(nonnull Account*)account
+{
+    if (self = [super initWithAccount:account])
+    {
+        _unitsToExchange = 0;
+    }
+    
+    return self;
 }
 
 #pragma mark - Update records
@@ -25,6 +39,25 @@
         _sourceRecord = [self recordAtIndex:0];
         _destinationRecord = [self recordAtIndex:1];
     }
+}
+
+#pragma mark - Amount
+
+- (nullable NSNumber*) unitsToExchangeInCurrency:(nonnull Currency*)currency
+{
+    return [[CurrencyProvider sharedInstance] amountFromUnits:self.unitsToExchange inCurrency:currency];
+}
+
+#pragma mark - Access currency info
+
+- (nonnull Currency*) sourceCurrencyAtIndex:(NSInteger)index
+{
+    return [self currencyAtIndex:index];
+}
+
+- (nonnull Currency*) destinationCurrencyAtIndex:(NSInteger)index
+{
+    return [self currencyAtIndex:index];
 }
 
 #pragma mark - Exchange

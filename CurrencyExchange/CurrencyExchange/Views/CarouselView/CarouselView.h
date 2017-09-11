@@ -16,8 +16,8 @@
 @protocol CarouselViewDelegate <NSObject>
 
 - (void) carouselViewDidChangePage:(nonnull CarouselView*)carouselView;
-
 - (void) carouselView:(nonnull CarouselView*)carouselView bindRecordView:(nonnull AccountRecordView*)recordView forPage:(NSInteger)page;
+- (void) carouselView:(nonnull CarouselView*)carouselView didChangeInput:(nonnull AccountRecordView*)recordView forPage:(NSInteger)page;
 
 @end
 
@@ -30,5 +30,7 @@
 @property (nonatomic, readwrite) NSArray<AccountRecordView*>* _Nonnull views;
 
 @property (nullable, nonatomic, weak) id <CarouselViewDelegate> delegate;
+
+- (void) bindData;
 
 @end

@@ -16,6 +16,11 @@
 
 - (void) dealloc
 {
+    if (self.amountTextField != nil)
+    {
+        [self unsubscribeFromTextField:self.amountTextField];
+    }
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -41,21 +46,34 @@
     textField.delegate = self;
 }
 
+- (void) unsubscribeFromTextField:(nonnull UITextField*)textField
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:textField];
+    
+    if (textField.delegate == self)
+    {
+        textField.delegate = nil;
+    }
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
-    
+    NSLog(@"did begin editing with text '%@'", textField.text);
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (void) textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    NSLog(@"did end editing with text '%@'", textField.text);
 }
 
 - (void) didChangeText:(nonnull NSNotification*)notification
 {
-    NSLog(@"text changed: '%@'", self.amountTextField.text);
+    if ([self.delegate respondsToSelector:@selector(acountRecordViewDidChangeInput:)])
+    {
+        [self.delegate acountRecordViewDidChangeInput:self];
+    }
 }
 
 @end

@@ -20,5 +20,6 @@
 - (NSInteger) numberOfRecords;
 
 - (nonnull AccountRecord*) recordAtIndex:(NSInteger)index;
+- (nonnull Currency*) currencyAtIndex:(NSInteger)index;
 
 @end

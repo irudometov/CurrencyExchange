@@ -7,6 +7,7 @@
 //
 
 #import "AccountViewModel.h"
+#import "AccountViewModel+Private.h"
 
 // Account view model
 
@@ -25,16 +26,6 @@
     return [[[self class] alloc] initWithAccount:account];
 }
 
-- (nullable instancetype) initWithAccount:(nonnull Account*)account
-{
-    if (self = [super init])
-    {
-        self.account = account;
-    }
-    
-    return self;
-}
-
 #pragma mark - Access account records
 
 - (NSInteger) numberOfRecords
@@ -47,6 +38,11 @@
     NSAssert(index >= 0 && index < self.numberOfRecords, @"Index %ld is out of bounds [0, %ld].", (long)index, (long)self.numberOfRecords);
     
     return self.account.records[index];
+}
+
+- (nonnull Currency*) currencyAtIndex:(NSInteger)index
+{
+    return [self recordAtIndex:index].currency;
 }
 
 @end

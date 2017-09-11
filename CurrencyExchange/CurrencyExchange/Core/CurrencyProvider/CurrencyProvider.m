@@ -170,6 +170,32 @@ const double CONVERSTION_RATE_1 = 1.0;
     return (self.baseCurrency != nil ? [self.baseCurrency isEqual:currency] : NO);
 }
 
+#pragma mark - Calculations
+
+- (nullable NSNumber*) unitsFromAmount:(double)amount forCurrency:(nonnull Currency*)currency
+{
+    if ([[CurrencyProvider sharedInstance] isBaseCurrency:currency])
+    {
+        return @(fabs(amount));
+    }
+    
+    NSNumber* rate = [[CurrencyProvider sharedInstance] conversionRateForCurrency:currency];
+    
+    return (rate != nil ? @(amount / rate.doubleValue) : nil);
+}
+
+- (nullable NSNumber*) amountFromUnits:(double)units inCurrency:(nonnull Currency*)currency
+{
+    if ([[CurrencyProvider sharedInstance] isBaseCurrency:currency])
+    {
+        return @(fabs(units));
+    }
+    
+    NSNumber* rate = [[CurrencyProvider sharedInstance] conversionRateForCurrency:currency];
+    
+    return (rate != nil ? @(units * rate.doubleValue) : nil);
+}
+
 #pragma mark - Refresh courses
 
 - (void) refreshCurrenciesWithCompletion:(nonnull CurrencyProviderCallback)callback
