@@ -13,7 +13,9 @@
 
 typedef void (^CurrencyProviderCallback) (CurrencyProvider* _Nonnull provider, NSError* _Nullable error);
 
-extern const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL;
+// Notifications
+
+extern NSString* _Nonnull const kNotification_CurrencyRatesUpdated;
 
 // A class to get updated currencies from the server.
 
@@ -22,6 +24,9 @@ extern const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL;
 @private
     CurrencyProviderCallback _callback;
     NSURLSessionDataTask* _task;
+    
+    NSTimer* _timer;
+    BOOL _isRefreshing;
 }
 
 + (nonnull instancetype) sharedInstance;
@@ -29,8 +34,6 @@ extern const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL;
 @property (nonnull, nonatomic, readonly) Currency* baseCurrency;        // EUR for the server by default.
 @property (nonnull, nonatomic, readonly) NSArray<Currency*>* currencies;
 @property (nonnull, nonatomic, readonly) NSArray<CurrencyPair*>* pairs;
-
-@property (nonatomic, readwrite) NSTimeInterval refreshTimeInterval;
 
 - (BOOL) isBaseCurrency:(nonnull Currency*)currency;
 

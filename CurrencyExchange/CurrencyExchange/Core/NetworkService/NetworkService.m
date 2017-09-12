@@ -44,11 +44,7 @@ static NSString* _Nonnull const kContentType_TextXML = @"text/xml";
     // Make sure we can accept xml responses.
     
     self.responseSerializer = [AFHTTPResponseSerializer new];
-    
-    if (![self.responseSerializer.acceptableContentTypes containsObject:kContentType_TextXML])
-    {
-        self.responseSerializer.acceptableContentTypes = [self.responseSerializer.acceptableContentTypes setByAddingObject:kContentType_TextXML];
-    }
+    self.responseSerializer.acceptableContentTypes = [self.responseSerializer.acceptableContentTypes setByAddingObject:kContentType_TextXML];
 }
 
 @end

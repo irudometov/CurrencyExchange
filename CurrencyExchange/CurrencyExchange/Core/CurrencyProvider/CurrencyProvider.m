@@ -8,7 +8,6 @@
 
 #import "CurrencyProvider.h"
 
-const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL = 30; // sec
 const double CONVERSTION_RATE_EQUAL = 1.0;
 
 // Currency provider
@@ -40,15 +39,29 @@ const double CONVERSTION_RATE_EQUAL = 1.0;
     if (self = [super init])
     {
         _baseCurrency = [Currency EUR];
-        _refreshTimeInterval = CURRENCY_REFRESH_TIME_INTERVAL;
         
         _currencies = [NSMutableArray<Currency*> new];
         _pairs = [NSMutableArray<CurrencyPair*> new];
+        
+        _isRefreshing = NO;
         
         [self initDefaultCurrencies];
     }
     
     return self;
+}
+
+- (void) dealloc
+{
+    // Invalidate timer.
+    
+    if ([_timer isValid]) {
+        [_timer invalidate];
+    }
+    
+    _timer = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void) initDefaultCurrencies
@@ -58,13 +71,6 @@ const double CONVERSTION_RATE_EQUAL = 1.0;
     Currency* gbp = [Currency GBP];
     
     [_currencies addObjectsFromArray:@[eur, usd, gbp]];
-    
-//    // Build default pairs.
-//    
-//    CurrencyPair* eur_usd = [CurrencyPair pairWithSource:eur target:usd rate:1.2060];
-//    CurrencyPair* eur_gbp = [CurrencyPair pairWithSource:eur target:gbp rate:0.91268];
-//    
-//    [_pairs addObjectsFromArray:@[eur_usd, eur_gbp]];
 }
 
 #pragma mark - Convert

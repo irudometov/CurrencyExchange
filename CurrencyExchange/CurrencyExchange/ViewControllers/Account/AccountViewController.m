@@ -14,6 +14,7 @@
 #import "CurrencyProvider+Network.h"
 
 static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
+static NSString* _Nonnull const kSeque_OpenExchange = @"open-exchange";
 
 // Account view controller
 
@@ -21,6 +22,7 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
 
 @property (nonnull, nonatomic) AccountViewModel* viewModel;
 @property (nonnull, nonatomic) IBOutlet UITableView* tableView;
+@property (nonnull, nonatomic) IBOutlet UIButton* exchangeButton;
 
 @end
 
@@ -44,6 +46,7 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
 {
     [super viewDidLoad];
     [self congiureTableView:self.tableView];
+    [self congiureExchangeButton];
     
     if (self.viewModel == nil)
     {
@@ -63,18 +66,7 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
     
     // Load currency rates from the server on the first appear.
     
-    if ([CurrencyProvider sharedInstance].pairs.count == 0)
-    {
-        [[CurrencyProvider sharedInstance] refreshCurrenciesWithCompletion:^(CurrencyProvider * _Nonnull provider, NSError * _Nullable error) {
-            
-            if (error) {
-                NSLog(@"Fail to load currency rates: %@", error.localizedDescription);
-            }
-            else {
-                NSLog(@"Currency rates are preloaded: %@", [CurrencyProvider sharedInstance].pairs);
-            }
-        }];
-    }
+    [[CurrencyProvider sharedInstance] startRefreshingPairs];
 }
 
 #pragma mark - Configure
@@ -83,6 +75,12 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
 {
     tableView.dataSource = self;
     tableView.delegate = self;
+}
+
+- (void) congiureExchangeButton
+{
+    self.exchangeButton.layer.cornerRadius = 5;
+    self.exchangeButton.layer.masksToBounds = YES;
 }
 
 #pragma mark - UITableViewDataSource
@@ -110,7 +108,7 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"open-exchange"] &&
+    if ([segue.identifier isEqualToString:kSeque_OpenExchange] &&
         [segue.destinationViewController isKindOfClass:[UINavigationController class]])
     {
         UINavigationController* navigationController = (UINavigationController*)segue.destinationViewController;

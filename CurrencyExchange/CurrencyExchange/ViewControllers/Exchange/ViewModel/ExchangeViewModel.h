@@ -9,9 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "AccountViewModel.h"
 
+// View model presenter
+
+@protocol IViewModelPresenter <NSObject>
+
+- (void) viewModelDidUpdate:(nonnull NSObject*)viewModel;
+
+@end
+
 // A view model to exchange currencies.
 
 @interface ExchangeViewModel : AccountViewModel
+
+@property (nullable, nonatomic, weak) id <IViewModelPresenter> presenter;
 
 @property (nonatomic, readwrite) double unitsToExchange;
 

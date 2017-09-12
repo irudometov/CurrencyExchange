@@ -16,7 +16,7 @@
 
 // Exchange view controller
 
-@interface ExchangeViewController () <CarouselViewDelegate>
+@interface ExchangeViewController () <CarouselViewDelegate, IViewModelPresenter>
 
 @property (nonatomic, weak) IBOutlet UIButton* exchangeButton;
 @property (nonatomic, weak) IBOutlet UIView* sourcePlaceholder;
@@ -28,6 +28,7 @@
 {
     CarouselView* _sourceCarousel;
     CarouselView* _destinationCarousel;
+    ExchangeViewModel* _viewModel;
 }
 
 - (void) viewDidLoad
@@ -46,6 +47,34 @@
 {
     [super viewWillAppear:animated];
     [self bindData];
+}
+
+#pragma mark - View Model
+
+- (nonnull ExchangeViewModel*) viewModel
+{
+    NSAssert(_viewModel != nil, @"View model can't be nil.");
+    return _viewModel;
+}
+
+- (void) setViewModel:(ExchangeViewModel *)viewModel
+{
+    if (_viewModel != viewModel)
+    {
+        _viewModel.presenter = nil;
+        _viewModel = viewModel;
+        _viewModel.presenter = self;
+    }
+}
+
+#pragma mark - IViewModelPresenter
+
+- (void) viewModelDidUpdate:(NSObject *)viewModel
+{
+    if (viewModel == self.viewModel)
+    {
+        [self bindData];
+    }
 }
 
 #pragma mark - Bind data
@@ -67,9 +96,7 @@
 + (nullable CarouselView*) createCarouselWithSize:(NSUInteger)size
 {
     CarouselView* carousel = [CarouselView loadFromNib];
-    
     carousel.pageCount = size;
-    
     return carousel;
 }
 
@@ -164,12 +191,10 @@
 {
     // Calculate a new amount to convert using an appropriate currency.
     
-//    const BOOL isSource = (carouselView == _sourceCarousel);
     Currency* currency = [self.viewModel currencyAtIndex:page];
     
     NSNumber* amount = [Utils amountFromString:recordView.amountTextField.text];
     NSNumber* unitsToExchange = [[CurrencyProvider sharedInstance] unitsFromAmount:amount.doubleValue forCurrency:currency];
-//    NSLog(@"source: %@, amount = %@, units = %@", @(isSource), amount, unitsToExchange);
 
     // Set new value and refresh views.
     
@@ -214,18 +239,12 @@
 
 - (IBAction) exchange:(id)sender
 {
-    AccountRecord* source = [self.viewModel sourceRecord];
-    AccountRecord* target = [self.viewModel targetRecord];
-    
-    NSLog(@"exchange %.2f EUR from %@ to %@", self.viewModel.unitsToExchange, source.currency.code, target.currency.code);
-    
     NSError* error = nil;
     
     const BOOL exchanged = [self.viewModel exchange:&error];
     
     if (exchanged)
     {
-        NSLog(@"Exchagned!");
         [self dismissViewControllerAnimated:YES completion:nil];
         return;
     }

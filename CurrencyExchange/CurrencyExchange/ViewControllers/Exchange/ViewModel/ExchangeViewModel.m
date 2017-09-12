@@ -16,6 +16,7 @@
 @implementation ExchangeViewModel
 {
     double _unitsToExchange;
+    BOOL _isLocked;
 }
 
 - (nullable instancetype) initWithAccount:(nonnull Account*)account
@@ -25,9 +26,37 @@
         _unitsToExchange = 0;
         _sourceRecordIndex = 0;
         _targetRecordIndex = MIN(MAX(self.numberOfRecords - 1, 0), 1);
+        [self subscribeForNotifications];
     }
     
     return self;
+}
+
+- (void) dealloc
+{
+    [self unsubscribeFromNotifications];
+}
+
+#pragma mark - Subscribe for notifications
+
+- (void) subscribeForNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRatesUpdated:) name:kNotification_CurrencyRatesUpdated object:[CurrencyProvider sharedInstance]];
+}
+
+- (void) unsubscribeFromNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) onRatesUpdated:(nonnull NSNotification*)notification
+{
+    // Here we should recalculate the current state using the last rates.
+    
+    if ([self.presenter respondsToSelector:@selector(viewModelDidUpdate:)])
+    {
+        [self.presenter viewModelDidUpdate:self];
+    }
 }
 
 #pragma mark - Amount
@@ -99,33 +128,46 @@
 
 - (BOOL) exchange:(NSError* _Nonnull __autoreleasing *_Nullable)error
 {
-    AccountRecord* source = self.sourceRecord;
-    AccountRecord* target = self.targetRecord;
+    [self unsubscribeFromNotifications];
     
-    CurrencyProvider* provider = [CurrencyProvider sharedInstance];
-    
-    NSNumber* amountToTake = [provider convert:self.unitsToExchange from:provider.baseCurrency to:source.currency error:error];
-    
-    if (amountToTake == nil)
+    @try
+    {
+        AccountRecord* source = self.sourceRecord;
+        AccountRecord* target = self.targetRecord;
+        
+        CurrencyProvider* provider = [CurrencyProvider sharedInstance];
+        
+        NSNumber* amountToTake = [provider convert:self.unitsToExchange from:provider.baseCurrency to:source.currency error:error];
+        
+        if (amountToTake == nil)
+        {
+            return NO;
+        }
+        
+        NSNumber* amountToPut = [provider convert:self.unitsToExchange from:provider.baseCurrency to:target.currency error:error];
+        
+        if (amountToPut == nil)
+        {
+            return NO;
+        }
+        
+        ExchangeTransaction* transaction = [ExchangeTransaction transactionWithSourceCurrency:source.currency amountToTake:amountToTake.doubleValue targetCurrency:target.currency amountToPut:amountToPut.doubleValue];
+        
+        if (transaction != nil)
+        {
+            return [self.account performExchangeTransaction:transaction error:error];
+        }
+        
+        return NO;
+    }
+    @catch (NSException *exception)
     {
         return NO;
     }
-    
-    NSNumber* amountToPut = [provider convert:self.unitsToExchange from:provider.baseCurrency to:target.currency error:error];
-    
-    if (amountToPut == nil)
+    @finally
     {
-        return NO;
+        [self subscribeForNotifications];
     }
-    
-    ExchangeTransaction* transaction = [ExchangeTransaction transactionWithSourceCurrency:source.currency amountToTake:amountToTake.doubleValue targetCurrency:target.currency amountToPut:amountToPut.doubleValue];
-    
-    if (transaction != nil)
-    {
-        return [self.account performExchangeTransaction:transaction error:error];
-    }
-    
-    return NO;
 }
 
 #pragma mark - Localization
@@ -140,13 +182,14 @@
 
 + (nonnull NSString*) localizedBalanceForRecord:(nonnull AccountRecord*)record enough:(BOOL)enough
 {
-    NSString* format = (enough ? @"account_record_balance_format" : @"account_record_not_enough_balance_format");
     NSString* amount = [@(record.amount) formatAsCurrency:record.currency];
     
     if (amount == nil)
     {
         amount = @(record.amount).stringValue;
     }
+    
+    NSString* format = (enough || record.amount >= 0.01 ? @"account_record_balance_format" : @"account_record_is_empty");
     
     return [NSString stringWithFormat:NSLocalizedString(format, nil), amount];
 }

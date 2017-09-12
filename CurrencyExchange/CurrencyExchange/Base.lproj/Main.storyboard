@@ -101,6 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your account" id="bdF-T3-ZQS"/>
                     <connections>
+                        <outlet property="exchangeButton" destination="xB7-S8-7Fh" id="2p1-SR-5lb"/>
                         <outlet property="tableView" destination="bqo-tT-2gB" id="PRk-p8-HDx"/>
                     </connections>
                 </viewController>

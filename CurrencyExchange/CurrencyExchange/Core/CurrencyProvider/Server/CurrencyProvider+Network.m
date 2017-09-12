@@ -15,6 +15,8 @@
 
 NSString* _Nonnull const kDailyStatXMLURLString = @"https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml";
 
+const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL = 30; // sec
+
 // Currency provider
 
 @implementation CurrencyProvider (Network)
@@ -27,7 +29,11 @@ NSString* _Nonnull const kDailyStatXMLURLString = @"https://www.ecb.europa.eu/st
 - (void) refreshCurrenciesWithCompletion:(nonnull CurrencyProviderCallback)callback
 {
     _callback = callback;
-    
+    [self refreshCurrencies];
+}
+
+- (void) refreshCurrencies
+{
     // Cancel the previous request.
     
     if (_task != nil)
@@ -71,12 +77,73 @@ NSString* _Nonnull const kDailyStatXMLURLString = @"https://www.ecb.europa.eu/st
             
             if (This->_callback != NULL)
             {
-                This->_callback(This, resultError);
+                CurrencyProviderCallback block = This->_callback;
+                This->_callback = NULL;
+                block(This, resultError);
+            }
+            
+            if (This->_isRefreshing)
+            {
+                [This scheduleTimer];
             }
         }
     }];
     
     [_task resume];
+}
+
+#pragma mark - Timer
+
+- (void) startRefreshingPairs
+{
+    _isRefreshing = YES;
+    [self subscribeForApplicationNotifications];
+    [self scheduleTimer];
+}
+
+- (void) stopRefreshingPairs
+{
+    _isRefreshing = NO;
+    [self invalidateTimer];
+}
+
+- (void) scheduleTimer
+{
+    // Invalidate the current timer and setup a new one...
+    
+    [self invalidateTimer];
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:CURRENCY_REFRESH_TIME_INTERVAL target:self selector:@selector(refreshCurrencies) userInfo:nil repeats:NO];
+}
+
+- (void) invalidateTimer
+{
+    if (_timer != nil)
+    {
+        if ([_timer isValid]) {
+            [_timer invalidate];
+        }
+        
+        _timer = nil;
+    }
+}
+
+#pragma mark - App notifications
+
+- (void) subscribeForApplicationNotifications
+{
+    [self unsubscribeFromApplicationNotifications];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopRefreshingPairs) name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startRefreshingPairs) name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
+}
+
+- (void) unsubscribeFromApplicationNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
 }
 
 @end

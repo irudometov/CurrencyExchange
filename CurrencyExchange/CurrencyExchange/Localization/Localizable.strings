@@ -9,4 +9,4 @@
 /* Account record balance */
 
 "account_record_balance_format" = "You have %@";
-"account_record_not_enough_balance_format" = "You have only %@";
+"account_record_is_empty" = "Account is empty";
