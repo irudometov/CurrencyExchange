@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36001D131F6721D3006748EF /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 36001D121F6721D3006748EF /* NetworkService.m */; };
+		36001D191F672875006748EF /* CurrencyProvider+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 36001D181F672875006748EF /* CurrencyProvider+Private.m */; };
+		36001D241F67A4F5006748EF /* CurrencyProvider+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 36001D201F67A4F5006748EF /* CurrencyProvider+Network.m */; };
+		36001D251F67A4F5006748EF /* CurrencyPairResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36001D231F67A4F5006748EF /* CurrencyPairResponseSerializer.m */; };
 		363255FC1F651EEF003E10F2 /* AccountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 363255FB1F651EEF003E10F2 /* AccountViewModel.m */; };
 		363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 363255FE1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m */; };
 		36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F4B1F65552B00B70691 /* AccountRecordTableViewCell.m */; };
@@ -24,18 +28,20 @@
 		36501F741F67032700B70691 /* ExchangeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F731F67032700B70691 /* ExchangeTransaction.m */; };
 		36501F761F670B5F00B70691 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36501F751F670B5F00B70691 /* Errors.strings */; };
 		36501F791F671C3700B70691 /* UIViewController+Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F781F671C3700B70691 /* UIViewController+Errors.m */; };
+		36B342511F67A7D1002F6B64 /* CurrencyPairResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B342501F67A7D1002F6B64 /* CurrencyPairResponse.m */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
 		36D285351F63EE14007B0034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D285341F63EE14007B0034 /* Assets.xcassets */; };
 		36D285381F63EE14007B0034 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285361F63EE14007B0034 /* LaunchScreen.storyboard */; };
 		36D285431F63EE15007B0034 /* CurrencyExchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285421F63EE15007B0034 /* CurrencyExchangeTests.m */; };
-		36D285521F63EEB2007B0034 /* AccoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285511F63EEB2007B0034 /* AccoutViewController.m */; };
+		36D285521F63EEB2007B0034 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285511F63EEB2007B0034 /* AccountViewController.m */; };
 		36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285541F63EEC1007B0034 /* ExchangeViewController.m */; };
 		36D285671F63F35F007B0034 /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285661F63F35F007B0034 /* Currency.m */; };
 		36D2856A1F63F453007B0034 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285691F63F453007B0034 /* Account.m */; };
 		36D2856D1F63F510007B0034 /* AccountRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2856C1F63F510007B0034 /* AccountRecord.m */; };
 		36D285731F63FD6B007B0034 /* CurrencyProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285721F63FD6B007B0034 /* CurrencyProvider.m */; };
+		991A141383AA3A6BD778AB47 /* Pods_CurrencyExchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077AD2469B13C9441A896D06 /* Pods_CurrencyExchange.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		077AD2469B13C9441A896D06 /* Pods_CurrencyExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrencyExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36001D111F6721D3006748EF /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		36001D121F6721D3006748EF /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		36001D171F672875006748EF /* CurrencyProvider+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CurrencyProvider+Private.h"; path = "../CurrencyProvider+Private.h"; sourceTree = "<group>"; };
+		36001D181F672875006748EF /* CurrencyProvider+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CurrencyProvider+Private.m"; path = "../CurrencyProvider+Private.m"; sourceTree = "<group>"; };
+		36001D1F1F67A4F5006748EF /* CurrencyProvider+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CurrencyProvider+Network.h"; sourceTree = "<group>"; };
+		36001D201F67A4F5006748EF /* CurrencyProvider+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CurrencyProvider+Network.m"; sourceTree = "<group>"; };
+		36001D221F67A4F5006748EF /* CurrencyPairResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyPairResponseSerializer.h; sourceTree = "<group>"; };
+		36001D231F67A4F5006748EF /* CurrencyPairResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPairResponseSerializer.m; sourceTree = "<group>"; };
 		363255FA1F651EEF003E10F2 /* AccountViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewModel.h; sourceTree = "<group>"; };
 		363255FB1F651EEF003E10F2 /* AccountViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewModel.m; sourceTree = "<group>"; };
 		363255FD1F651F08003E10F2 /* AccountViewModel+DefaultAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AccountViewModel+DefaultAccount.h"; sourceTree = "<group>"; };
@@ -79,6 +94,8 @@
 		36501F751F670B5F00B70691 /* Errors.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Errors.strings; sourceTree = "<group>"; };
 		36501F771F671C3700B70691 /* UIViewController+Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Errors.h"; sourceTree = "<group>"; };
 		36501F781F671C3700B70691 /* UIViewController+Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Errors.m"; sourceTree = "<group>"; };
+		36B3424F1F67A7D1002F6B64 /* CurrencyPairResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyPairResponse.h; sourceTree = "<group>"; };
+		36B342501F67A7D1002F6B64 /* CurrencyPairResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPairResponse.m; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,8 +107,8 @@
 		36D2853E1F63EE15007B0034 /* CurrencyExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyExchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285421F63EE15007B0034 /* CurrencyExchangeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyExchangeTests.m; sourceTree = "<group>"; };
 		36D285441F63EE15007B0034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36D285501F63EEB2007B0034 /* AccoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccoutViewController.h; sourceTree = "<group>"; };
-		36D285511F63EEB2007B0034 /* AccoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccoutViewController.m; sourceTree = "<group>"; };
+		36D285501F63EEB2007B0034 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		36D285511F63EEB2007B0034 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		36D285531F63EEC1007B0034 /* ExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeViewController.h; sourceTree = "<group>"; };
 		36D285541F63EEC1007B0034 /* ExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeViewController.m; sourceTree = "<group>"; };
 		36D285651F63F35F007B0034 /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
@@ -102,6 +119,8 @@
 		36D2856C1F63F510007B0034 /* AccountRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecord.m; sourceTree = "<group>"; };
 		36D285711F63FD6B007B0034 /* CurrencyProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyProvider.h; sourceTree = "<group>"; };
 		36D285721F63FD6B007B0034 /* CurrencyProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyProvider.m; sourceTree = "<group>"; };
+		FACEE0838B1CCB77444A8641 /* Pods-CurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
+		FE82FA054182A07C5C74B7E9 /* Pods-CurrencyExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				991A141383AA3A6BD778AB47 /* Pods_CurrencyExchange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +142,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36001D1E1F67A4F5006748EF /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				36001D211F67A4F5006748EF /* Parser */,
+				36001D171F672875006748EF /* CurrencyProvider+Private.h */,
+				36001D181F672875006748EF /* CurrencyProvider+Private.m */,
+				36001D1F1F67A4F5006748EF /* CurrencyProvider+Network.h */,
+				36001D201F67A4F5006748EF /* CurrencyProvider+Network.m */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		36001D211F67A4F5006748EF /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				36001D221F67A4F5006748EF /* CurrencyPairResponseSerializer.h */,
+				36001D231F67A4F5006748EF /* CurrencyPairResponseSerializer.m */,
+				36B3424F1F67A7D1002F6B64 /* CurrencyPairResponse.h */,
+				36B342501F67A7D1002F6B64 /* CurrencyPairResponse.m */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
 		363255F91F651EEF003E10F2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +260,8 @@
 				36D285271F63EE14007B0034 /* CurrencyExchange */,
 				36D285411F63EE15007B0034 /* CurrencyExchangeTests */,
 				36D285261F63EE14007B0034 /* Products */,
+				8A4E8227024FBCB7DE4ECF18 /* Pods */,
+				AFC518DD4F92BF652AF1D4CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,8 +323,8 @@
 			children = (
 				36501F491F65551800B70691 /* Cell */,
 				363255F91F651EEF003E10F2 /* ViewModel */,
-				36D285501F63EEB2007B0034 /* AccoutViewController.h */,
-				36D285511F63EEB2007B0034 /* AccoutViewController.m */,
+				36D285501F63EEB2007B0034 /* AccountViewController.h */,
+				36D285511F63EEB2007B0034 /* AccountViewController.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -323,23 +368,18 @@
 		36D2855B1F63F1FB007B0034 /* CurrencyProvider */ = {
 			isa = PBXGroup;
 			children = (
-				36D2855D1F63F1FB007B0034 /* Parser */,
+				36001D1E1F67A4F5006748EF /* Server */,
 				36D285711F63FD6B007B0034 /* CurrencyProvider.h */,
 				36D285721F63FD6B007B0034 /* CurrencyProvider.m */,
 			);
 			path = CurrencyProvider;
 			sourceTree = "<group>";
 		};
-		36D2855D1F63F1FB007B0034 /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Parser;
-			sourceTree = "<group>";
-		};
 		36D2855E1F63F1FB007B0034 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				36001D111F6721D3006748EF /* NetworkService.h */,
+				36001D121F6721D3006748EF /* NetworkService.m */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -365,6 +405,23 @@
 			path = Currency;
 			sourceTree = "<group>";
 		};
+		8A4E8227024FBCB7DE4ECF18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE82FA054182A07C5C74B7E9 /* Pods-CurrencyExchange.debug.xcconfig */,
+				FACEE0838B1CCB77444A8641 /* Pods-CurrencyExchange.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFC518DD4F92BF652AF1D4CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				077AD2469B13C9441A896D06 /* Pods_CurrencyExchange.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,9 +429,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36D285471F63EE15007B0034 /* Build configuration list for PBXNativeTarget "CurrencyExchange" */;
 			buildPhases = (
+				266F69779D4D9D172B397ABB /* [CP] Check Pods Manifest.lock */,
 				36D285211F63EE14007B0034 /* Sources */,
 				36D285221F63EE14007B0034 /* Frameworks */,
 				36D285231F63EE14007B0034 /* Resources */,
+				B9D80E15BB2CAB79779E11F5 /* [CP] Embed Pods Frameworks */,
+				463AD50E9B943E3EA5263008 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -468,23 +528,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		266F69779D4D9D172B397ABB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		463AD50E9B943E3EA5263008 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9D80E15BB2CAB79779E11F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		36D285211F63EE14007B0034 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				36501F631F66820300B70691 /* CurrencyPair.m in Sources */,
+				36001D191F672875006748EF /* CurrencyProvider+Private.m in Sources */,
 				36D285731F63FD6B007B0034 /* CurrencyProvider.m in Sources */,
 				36501F501F656AF600B70691 /* ExchangeViewModel.m in Sources */,
 				36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */,
-				36D285521F63EEB2007B0034 /* AccoutViewController.m in Sources */,
+				36D285521F63EEB2007B0034 /* AccountViewController.m in Sources */,
 				36D285671F63F35F007B0034 /* Currency.m in Sources */,
 				36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */,
+				36001D241F67A4F5006748EF /* CurrencyProvider+Network.m in Sources */,
 				36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */,
 				363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */,
+				36B342511F67A7D1002F6B64 /* CurrencyPairResponse.m in Sources */,
 				36501F741F67032700B70691 /* ExchangeTransaction.m in Sources */,
 				36501F6A1F66A45100B70691 /* Utils.m in Sources */,
 				36501F791F671C3700B70691 /* UIViewController+Errors.m in Sources */,
+				36001D251F67A4F5006748EF /* CurrencyPairResponseSerializer.m in Sources */,
 				36501F5E1F65876900B70691 /* CarouselView.m in Sources */,
 				36501F4C1F65552B00B70691 /* AccountRecordTableViewCell.m in Sources */,
 				36D2856A1F63F453007B0034 /* Account.m in Sources */,
@@ -493,6 +605,7 @@
 				36501F661F66A20400B70691 /* AccountViewModel+Private.m in Sources */,
 				36501F6E1F66F0FE00B70691 /* NSNumber+Currency.m in Sources */,
 				36D2852A1F63EE14007B0034 /* main.m in Sources */,
+				36001D131F6721D3006748EF /* NetworkService.m in Sources */,
 				36501F541F65799E00B70691 /* AccountRecordView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +740,7 @@
 		};
 		36D285481F63EE15007B0034 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE82FA054182A07C5C74B7E9 /* Pods-CurrencyExchange.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T4FZEXKFYW;
@@ -640,6 +754,7 @@
 		};
 		36D285491F63EE15007B0034 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FACEE0838B1CCB77444A8641 /* Pods-CurrencyExchange.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T4FZEXKFYW;

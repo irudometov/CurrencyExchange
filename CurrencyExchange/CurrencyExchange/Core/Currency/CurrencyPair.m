@@ -37,4 +37,14 @@
     return self;
 }
 
+- (nonnull NSString*) description
+{
+    return [self debugDescription];
+}
+
+- (nonnull NSString*) debugDescription
+{
+    return [NSString stringWithFormat:@"%@ -> %@ (%@)", self.source.code, self.target.code, @(self.rate)];
+}
+
 @end

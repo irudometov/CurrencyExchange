@@ -1,36 +1,37 @@
 //
-//  AccoutViewController.m
+//  AccountViewController.m
 //  CurrencyExchange
 //
 //  Created by Ilya Rudometov on 09/09/2017.
 //  Copyright © 2017 Ilya Rudometov. All rights reserved.
 //
 
-#import "AccoutViewController.h"
+#import "AccountViewController.h"
 #import "AccountViewModel.h"
 #import "AccountRecordTableViewCell.h"
 #import "ExchangeViewController.h"
 #import "AccountViewModel+DefaultAccount.h"
+#import "CurrencyProvider+Network.h"
 
 static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
 
 // Account view controller
 
-@interface AccoutViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface AccountViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonnull, nonatomic) AccountViewModel* viewModel;
 @property (nonnull, nonatomic) IBOutlet UITableView* tableView;
 
 @end
 
-@implementation AccoutViewController
+@implementation AccountViewController
 
 + (nullable instancetype) viewControllerForAccount:(nonnull Account*)account
 {
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    AccoutViewController* viewController = [storyboard instantiateViewControllerWithIdentifier:@"account"];
+    AccountViewController* viewController = [storyboard instantiateViewControllerWithIdentifier:@"account"];
     
-    if ([viewController isKindOfClass:[AccoutViewController class]])
+    if ([viewController isKindOfClass:[AccountViewController class]])
     {
         viewController.viewModel = [AccountViewModel viewModelForAccount:account];
         return viewController;
@@ -54,6 +55,26 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Load currency rates from the server on the first appear.
+    
+    if ([CurrencyProvider sharedInstance].pairs.count == 0)
+    {
+        [[CurrencyProvider sharedInstance] refreshCurrenciesWithCompletion:^(CurrencyProvider * _Nonnull provider, NSError * _Nullable error) {
+            
+            if (error) {
+                NSLog(@"Fail to load currency rates: %@", error.localizedDescription);
+            }
+            else {
+                NSLog(@"Currency rates are preloaded: %@", [CurrencyProvider sharedInstance].pairs);
+            }
+        }];
+    }
 }
 
 #pragma mark - Configure
@@ -89,8 +110,6 @@ static NSString* _Nonnull const kAccountRecordCellId = @"account-record";
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"seque: %@", segue.identifier);
-    
     if ([segue.identifier isEqualToString:@"open-exchange"] &&
         [segue.destinationViewController isKindOfClass:[UINavigationController class]])
     {

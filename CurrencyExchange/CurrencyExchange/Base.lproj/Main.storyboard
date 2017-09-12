@@ -13,7 +13,7 @@
         <!--Your account-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="account" id="BYZ-38-t0r" customClass="AccoutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="account" id="BYZ-38-t0r" customClass="AccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -151,7 +151,7 @@
                                 <action selector="cancel:" destination="Rh0-6Y-ZDL" id="eRd-u1-wtH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="GfR-sf-uc8">
+                        <barButtonItem key="rightBarButtonItem" id="GfR-sf-uc8">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ocs-c3-pSx">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

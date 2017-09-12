@@ -102,16 +102,14 @@
 {
     if (carouselView == _sourceCarousel)
     {
-        NSLog(@"source page is %ld", (long)carouselView.page);
         self.viewModel.sourceRecordIndex = carouselView.page;
         
-        // Update courses for the new source currency.
+        // Update courses for the new source currency as well.
         
         [_destinationCarousel bindData];
     }
     else if (carouselView == _destinationCarousel)
     {
-        NSLog(@"destination page is %ld", (long)carouselView.page);
         self.viewModel.targetRecordIndex = carouselView.page;
     }
     

@@ -18,8 +18,13 @@ extern const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL;
 // A class to get updated currencies from the server.
 
 @interface CurrencyProvider : NSObject
+{
+@private
+    CurrencyProviderCallback _callback;
+    NSURLSessionDataTask* _task;
+}
 
-+ (nonnull CurrencyProvider*) sharedInstance;
++ (nonnull instancetype) sharedInstance;
 
 @property (nonnull, nonatomic, readonly) Currency* baseCurrency;        // EUR for the server by default.
 @property (nonnull, nonatomic, readonly) NSArray<Currency*>* currencies;
@@ -39,7 +44,5 @@ extern const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL;
 
 - (nullable NSNumber*) unitsFromAmount:(double)amount forCurrency:(nonnull Currency*)currency;
 - (nullable NSNumber*) amountFromUnits:(double)units inCurrency:(nonnull Currency*)currency;
-
-- (void) refreshCurrenciesWithCompletion:(nonnull CurrencyProviderCallback)callback;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  AccoutViewController.h
+//  AccountViewController.h
 //  CurrencyExchange
 //
 //  Created by Ilya Rudometov on 09/09/2017.
@@ -10,6 +10,6 @@
 
 // This class displays the current user's account details.
 
-@interface AccoutViewController : UIViewController
+@interface AccountViewController : UIViewController
 
 @end

@@ -15,14 +15,13 @@ const double CONVERSTION_RATE_EQUAL = 1.0;
 
 @implementation CurrencyProvider
 {
-    CurrencyProviderCallback _callback;
     NSMutableArray<Currency*>* _currencies;
     NSMutableArray<CurrencyPair*>* _pairs;
 }
 
 #pragma mark - Shared Instance
 
-+ (nonnull CurrencyProvider*) sharedInstance
++ (nonnull instancetype) sharedInstance
 {
     static CurrencyProvider* __sharedInstance = nil;
     
@@ -46,13 +45,13 @@ const double CONVERSTION_RATE_EQUAL = 1.0;
         _currencies = [NSMutableArray<Currency*> new];
         _pairs = [NSMutableArray<CurrencyPair*> new];
         
-        [self initDefaultPairs];
+        [self initDefaultCurrencies];
     }
     
     return self;
 }
 
-- (void) initDefaultPairs
+- (void) initDefaultCurrencies
 {
     Currency* eur = [Currency EUR];
     Currency* usd = [Currency USD];
@@ -60,12 +59,12 @@ const double CONVERSTION_RATE_EQUAL = 1.0;
     
     [_currencies addObjectsFromArray:@[eur, usd, gbp]];
     
-    // Build default pairs.
-    
-    CurrencyPair* eur_usd = [CurrencyPair pairWithSource:eur target:usd rate:1.2060];
-    CurrencyPair* eur_gbp = [CurrencyPair pairWithSource:eur target:gbp rate:0.91268];
-    
-    [_pairs addObjectsFromArray:@[eur_usd, eur_gbp]];
+//    // Build default pairs.
+//    
+//    CurrencyPair* eur_usd = [CurrencyPair pairWithSource:eur target:usd rate:1.2060];
+//    CurrencyPair* eur_gbp = [CurrencyPair pairWithSource:eur target:gbp rate:0.91268];
+//    
+//    [_pairs addObjectsFromArray:@[eur_usd, eur_gbp]];
 }
 
 #pragma mark - Convert
@@ -194,13 +193,6 @@ const double CONVERSTION_RATE_EQUAL = 1.0;
     NSNumber* rate = [[CurrencyProvider sharedInstance] conversionRateForCurrency:currency];
     
     return (rate != nil ? @(fabs(units * rate.doubleValue)) : nil);
-}
-
-#pragma mark - Refresh courses
-
-- (void) refreshCurrenciesWithCompletion:(nonnull CurrencyProviderCallback)callback
-{
-    _callback = callback;
 }
 
 @end
