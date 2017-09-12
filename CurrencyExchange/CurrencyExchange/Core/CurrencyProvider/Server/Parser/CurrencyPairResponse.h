@@ -16,6 +16,6 @@
 @property (nonnull, nonatomic, copy, readonly) NSString* timeString;
 @property (nonnull, nonatomic, readonly) NSArray<CurrencyPair*>* pairs;
 
-+ (nullable instancetype) responseWithPairs:(NSArray<CurrencyPair*>*)pairs timeString:(nonnull NSString*)timeString;
++ (nullable instancetype) responseWithPairs:(NSArray<CurrencyPair*>* _Nonnull)pairs timeString:(nonnull NSString*)timeString;
 
 @end
