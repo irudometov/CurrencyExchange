@@ -17,7 +17,6 @@
 		36501F501F656AF600B70691 /* ExchangeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F4F1F656AF600B70691 /* ExchangeViewModel.m */; };
 		36501F541F65799E00B70691 /* AccountRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F531F65799E00B70691 /* AccountRecordView.m */; };
 		36501F561F6579ED00B70691 /* AccountRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36501F551F6579ED00B70691 /* AccountRecordView.xib */; };
-		36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F591F657F6F00B70691 /* UIView+Ex.m */; };
 		36501F5E1F65876900B70691 /* CarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F5D1F65876900B70691 /* CarouselView.m */; };
 		36501F601F65878A00B70691 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36501F5F1F65878A00B70691 /* CarouselView.xib */; };
 		36501F631F66820300B70691 /* CurrencyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F621F66820300B70691 /* CurrencyPair.m */; };
@@ -29,6 +28,7 @@
 		36501F761F670B5F00B70691 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36501F751F670B5F00B70691 /* Errors.strings */; };
 		36501F791F671C3700B70691 /* UIViewController+Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = 36501F781F671C3700B70691 /* UIViewController+Errors.m */; };
 		36B342511F67A7D1002F6B64 /* CurrencyPairResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B342501F67A7D1002F6B64 /* CurrencyPairResponse.m */; };
+		36B342571F67D597002F6B64 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B342561F67D597002F6B64 /* UIView+Ex.m */; };
 		36D2852A1F63EE14007B0034 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D285291F63EE14007B0034 /* main.m */; };
 		36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2852C1F63EE14007B0034 /* AppDelegate.m */; };
 		36D285331F63EE14007B0034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D285311F63EE14007B0034 /* Main.storyboard */; };
@@ -75,8 +75,6 @@
 		36501F521F65799E00B70691 /* AccountRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRecordView.h; sourceTree = "<group>"; };
 		36501F531F65799E00B70691 /* AccountRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecordView.m; sourceTree = "<group>"; };
 		36501F551F6579ED00B70691 /* AccountRecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountRecordView.xib; sourceTree = "<group>"; };
-		36501F581F657F6F00B70691 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
-		36501F591F657F6F00B70691 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
 		36501F5C1F65876900B70691 /* CarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
 		36501F5D1F65876900B70691 /* CarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselView.m; sourceTree = "<group>"; };
 		36501F5F1F65878A00B70691 /* CarouselView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
@@ -96,6 +94,8 @@
 		36501F781F671C3700B70691 /* UIViewController+Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Errors.m"; sourceTree = "<group>"; };
 		36B3424F1F67A7D1002F6B64 /* CurrencyPairResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyPairResponse.h; sourceTree = "<group>"; };
 		36B342501F67A7D1002F6B64 /* CurrencyPairResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPairResponse.m; sourceTree = "<group>"; };
+		36B342551F67D597002F6B64 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
+		36B342561F67D597002F6B64 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
 		36D285251F63EE14007B0034 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D285291F63EE14007B0034 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D2852B1F63EE14007B0034 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -206,15 +206,6 @@
 			path = AccountRecordView;
 			sourceTree = "<group>";
 		};
-		36501F571F657F5600B70691 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				36501F581F657F6F00B70691 /* UIView+Ex.h */,
-				36501F591F657F6F00B70691 /* UIView+Ex.m */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		36501F5B1F65875F00B70691 /* CarouselView */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +228,8 @@
 		36501F6B1F66F0EF00B70691 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				36B342551F67D597002F6B64 /* UIView+Ex.h */,
+				36B342561F67D597002F6B64 /* UIView+Ex.m */,
 				36501F6C1F66F0FE00B70691 /* NSNumber+Currency.h */,
 				36501F6D1F66F0FE00B70691 /* NSNumber+Currency.m */,
 				36501F771F671C3700B70691 /* UIViewController+Errors.h */,
@@ -387,7 +380,6 @@
 		36D2855F1F63F1FB007B0034 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				36501F571F657F5600B70691 /* UIView */,
 				36501F511F6578D600B70691 /* AccountRecordView */,
 				36501F5B1F65875F00B70691 /* CarouselView */,
 			);
@@ -588,7 +580,6 @@
 				36D285551F63EEC1007B0034 /* ExchangeViewController.m in Sources */,
 				36D285521F63EEB2007B0034 /* AccountViewController.m in Sources */,
 				36D285671F63F35F007B0034 /* Currency.m in Sources */,
-				36501F5A1F657F6F00B70691 /* UIView+Ex.m in Sources */,
 				36001D241F67A4F5006748EF /* CurrencyProvider+Network.m in Sources */,
 				36D2852D1F63EE14007B0034 /* AppDelegate.m in Sources */,
 				363255FF1F651F08003E10F2 /* AccountViewModel+DefaultAccount.m in Sources */,
@@ -606,6 +597,7 @@
 				36501F6E1F66F0FE00B70691 /* NSNumber+Currency.m in Sources */,
 				36D2852A1F63EE14007B0034 /* main.m in Sources */,
 				36001D131F6721D3006748EF /* NetworkService.m in Sources */,
+				36B342571F67D597002F6B64 /* UIView+Ex.m in Sources */,
 				36501F541F65799E00B70691 /* AccountRecordView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

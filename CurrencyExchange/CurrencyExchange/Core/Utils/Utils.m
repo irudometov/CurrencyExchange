@@ -19,7 +19,7 @@
     
     if (number != nil)
     {
-        return @(fabs([number doubleValue]));
+        return @(fabs(MAX(0, [number doubleValue])));
     }
     
     return @(0);

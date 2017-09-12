@@ -114,9 +114,10 @@
 {
     const double balance = [self balanceForRecortAtIndex:index];
     
-    if (self.unitsToExchange > 0.01)
+    if (self.unitsToExchange >= 0.01)
     {
-        return balance - self.unitsToExchange > -0.01;
+        const double delta = balance - self.unitsToExchange;
+        return delta >= -0.000001;
     }
     
     return balance >= 0;

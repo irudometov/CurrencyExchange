@@ -120,8 +120,11 @@ const NSInteger kError_InsufficientFunds = 103;
         const NSInteger sourceIndex = [_records indexOfObject:source];
         const NSInteger targetIndex = [_records indexOfObject:target];
         
-        AccountRecord* newSource = [AccountRecord recordWithCurrency:source.currency amount:source.amount - transaction.amountToTake];
-        AccountRecord* newTarget = [AccountRecord recordWithCurrency:target.currency amount:target.amount + transaction.amountToPut];
+        const double newSourceAmount = MAX(0, source.amount - transaction.amountToTake);
+        const double newTargetAmount = MAX(0, target.amount + transaction.amountToPut);
+        
+        AccountRecord* newSource = [AccountRecord recordWithCurrency:source.currency amount:newSourceAmount];
+        AccountRecord* newTarget = [AccountRecord recordWithCurrency:target.currency amount:newTargetAmount];
         
         [_records replaceObjectAtIndex:sourceIndex withObject:newSource];
         [_records replaceObjectAtIndex:targetIndex withObject:newTarget];

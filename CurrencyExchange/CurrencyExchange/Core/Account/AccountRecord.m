@@ -7,6 +7,7 @@
 //
 
 #import "AccountRecord.h"
+#import "NSNumber+Currency.h"
 
 // Account record
 
@@ -39,17 +40,7 @@
 
 - (nonnull NSString*) localizedAmountString
 {
-    static NSNumberFormatter* __numberFormatter = nil;
-    
-    if (__numberFormatter == nil)
-    {
-        __numberFormatter = [NSNumberFormatter new];
-        __numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    }
-    
-    __numberFormatter.currencyCode = self.currency.code;
-    
-    return [__numberFormatter stringFromNumber:@(self.amount)];
+    return [@(self.amount) formatAsCurrency:self.currency];
 }
 
 @end

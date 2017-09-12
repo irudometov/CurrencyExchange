@@ -98,7 +98,7 @@ const NSTimeInterval CURRENCY_REFRESH_TIME_INTERVAL = 30; // sec
 {
     _isRefreshing = YES;
     [self subscribeForApplicationNotifications];
-    [self scheduleTimer];
+    [self refreshCurrencies];
 }
 
 - (void) stopRefreshingPairs
