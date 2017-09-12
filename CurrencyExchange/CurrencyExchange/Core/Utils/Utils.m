@@ -15,10 +15,11 @@
 + (nonnull NSNumber*) amountFromString:(nonnull NSString*)string
 {
     NSString* trimmed = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSNumber* number = [[NSNumberFormatter new] numberFromString:trimmed];
     
-    if (trimmed != nil && trimmed.length > 0)
+    if (number != nil)
     {
-        return @(fabs([trimmed doubleValue]));
+        return @(fabs([number doubleValue]));
     }
     
     return @(0);
